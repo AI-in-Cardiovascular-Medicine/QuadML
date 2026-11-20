@@ -1,0 +1,2 @@
+# Documentation site only — do not merge into the app requirements.txt.
+mkdocs-material==9.6.14

@@ -1,0 +1,75 @@
+/* Brand header / primary (from provided swatch #1591DC) */
+:root {
+  --md-text-font: "Times New Roman", Times, serif;
+  --md-primary-fg-color: #1591DC;
+  --md-primary-fg-color--light: #3BA6E3;
+  --md-primary-fg-color--dark: #1174B0;
+  --md-primary-bg-color: #FFFFFF;
+  --md-primary-bg-color--light: #FFFFFFB3;
+  --md-accent-fg-color: #1591DC;
+  --md-accent-fg-color--transparent: #1591DC1A;
+  --md-accent-bg-color: #FFFFFF;
+  --md-accent-bg-color--light: #FFFFFFB3;
+}
+
+.md-header,
+.md-tabs {
+  background-color: #1591DC;
+}
+
+.md-typeset {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Light Previous / Next links — no solid footer bar */
+.md-footer {
+  background-color: transparent;
+  color: var(--md-default-fg-color);
+}
+
+.md-footer__inner {
+  padding: 1.25rem 0 0.5rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-footer__link {
+  color: var(--md-typeset-a-color);
+  opacity: 1;
+}
+
+.md-footer__link:hover,
+.md-footer__link:focus {
+  color: var(--md-accent-fg-color);
+  opacity: 1;
+}
+
+.md-footer__title {
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.md-footer__direction {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  opacity: 0.7;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.md-footer__button {
+  color: inherit;
+}
+
+/* Soften the theme credit strip under the nav links */
+.md-footer-meta {
+  background-color: transparent;
+  border-top: none;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-footer-meta .md-copyright {
+  color: inherit;
+  opacity: 0.65;
+}

@@ -255,7 +255,7 @@ If you use QuadML in your research, please cite:
 ```bibtex
 @article{quadml2026,
   title   = {QuadML: A General-Purpose, Open-Source Executable Machine Learning Framework for Supervised and Unsupervised Learning},
-  author  = {Mirzakhani, Hamed and Baj, Giovanni and Mohammadi Kazaj, Pooya and
+  author  = {Mirzakhani, Hamed and Baj, Giovanni and Mohammadi Kazaj, Pooya, and Chaimae Bahou,
              Hashemi Gheinani, Ali and Gräni, Christoph and Shiri, Isaac},
   year    = {2026},
   note    = {}

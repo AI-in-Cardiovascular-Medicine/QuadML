@@ -1,70 +1,50 @@
-# Classification — Results
+# Classification — Metrics
 
 **Where**: Classification → **Results**
 
-After **Start Procedure** finishes, **Results** loads `Final_Results.csv` from the dated run folder and shows each searched pipeline combination with its Train and Test metrics (or External metrics when Train on all data is on), so you can compare, filter, and open detailed reports. The user can also **Browse** an older run folder that already contains `Final_Results.csv` (or combo JSON) to reload and inspect previous results without starting a new search.
+Compare searched pipelines using Train / Test (or External) metrics. Prefer **Test** or **External** when choosing a model.
 
-![Class41](../assets/class/Class41.png)
+![Results](../assets/class/Class41.png)
 
-## What to click
+--8<-- "_snippets/results-usage.md"
 
-Confirm the results file. QuadML looks for Final_Results.csv in the run folder. You can Browse another folder that contains that CSV or combo JSON.
+Browse or confirm `Final_Results.csv` for the output run folder, then filter pipelines and open details:
 
-Read the cards / tables: Train on the left, Test on the right (or External when Train-on-all-data is on).
+![Results file and pipeline filters](../assets/class/Class42.png)
 
-Click Metric Explanations on the top bar for the full, in-app metric text.
+## Metrics that use the decision threshold
 
-Use overview actions as labeled, for example:
+These compare predicted classes with the true classes (binary threshold or multi-class argmax).
 
-Compare All Pipelines (table)
+| Metric | What it means | Better |
+|--------|---------------|--------|
+| Accuracy | Share of rows classified correctly | Higher |
+| Balanced Accuracy | Average of sensitivity and specificity; fairer when classes are imbalanced | Higher |
+| Sensitivity (Recall) | Share of positive cases that are detected | Higher |
+| Specificity | Share of negative cases correctly ruled out | Higher |
+| Precision (PPV) | When the model predicts positive, how often it is right | Higher |
+| NPV | When the model predicts negative, how often it is right | Higher |
+| F1-score | Balance between precision and sensitivity | Higher |
+| MCC | Correlation between predicted and true classes; robust to imbalance | Higher |
+| Cohen's kappa | Agreement with the true classes beyond chance | Higher |
 
-Detailed Report
+## Metrics that use predicted probabilities
 
-Show Selected / Show All Pipelines / Open in New Window / Clear Results
+These do not depend on the decision threshold.
 
-Filter by cleaning, imputation, scaling, feature selection, DR, and classifier as shown on the page.
+| Metric | What it means | Better |
+|--------|---------------|--------|
+| ROC-AUC | How well the model ranks positives above negatives (0.5 = random, 1 = perfect) | Higher |
+| PR-AUC | Like ROC-AUC, focused on the positive class; useful when it is rare | Higher |
+| Brier score | Average error of the predicted probabilities | Lower |
+| Log loss | Penalizes confident wrong predictions | Lower |
+| ECE | Calibration error: predicted probabilities vs observed frequencies | Lower |
 
-![Class42](../assets/class/Class42.png)
-
-![Class43](../assets/class/Class43.png)
-
-![Class44](../assets/class/Class44.png)
-
-![Class45](../assets/class/Class45.png)
-
-## How to read metrics (summary)
-
-Prefer Test (or External in train-on-all mode) when choosing a pipeline.
-
-Large Train vs Test gaps often mean overfitting.
-
-Do not treat Train scores as generalization.
-
-### Binary decision threshold
-
-On **binary** tasks, File Selection’s **Decision Threshold** (Youden, Prevalence, Manual, or 0.5) is chosen on **Train** and then reused for Test and External. That single cut turns predicted probabilities into class labels for hard-label metrics such as Accuracy, Balanced Accuracy, Precision (PPV), Recall (Sensitivity), F1, Specificity, NPV, MCC, Cohen’s kappa, and the confusion matrix.
-
-**Multi-class** tasks do not use this threshold; the predicted class is the one with the highest probability (argmax).
-
-Probability-based metrics — ROC-AUC, PR-AUC, log loss, Brier score, ECE, and decision-curve analyses — do **not** depend on the Decision Threshold.
-
-
-### Core metrics
-
-**Higher is better**: Accuracy, Balanced Accuracy, ROC-AUC (plus OvO / Micro on multi-class), Precision (PPV), Recall (Sensitivity), F1-score, MCC, Cohen’s kappa.
-
-**Lower is better**: Log loss, Brier score, ECE.
-
-Optional Bootstrap CIs (if enabled on Parameter Tuning) appear as intervals on scalar metrics; curves/matrices stay point-only.
-
-## What is written to disk
-
-You are reading files already written by the search. Export extra tables from the Results buttons if you need a copy elsewhere.
+Open **Metric Explanations** in the app for full definitions. Large Train vs Test gaps often mean overfitting.
 
 ## Common mistakes
 
-Opening a Final_Results.csv from a different task like Regression or an older run
-
-Picking the highest Train score
-
-Treating Recall and Sensitivity as two different scores — QuadML reports them as one
+- Comparing runs from different Output Directory dated folders without noting File Selection changes
+- Expecting Bootstrap CI columns when Bootstrap was off for that run
+- Opening a `Final_Results.csv` from a different mode
+- Picking by Train metrics while held-out scores are poor

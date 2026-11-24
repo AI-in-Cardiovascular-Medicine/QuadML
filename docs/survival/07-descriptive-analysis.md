@@ -1,40 +1,23 @@
-# Survival Analysis — Descriptive Analysis
+# Survival Analysis — Descriptive analysis
 
 **Where**: Survival Analysis → **Descriptive Analysis**
 
-This page is **not** a data-summary screen. It selects **non-parametric** models that describe the cohort **without covariates**:
+Non-parametric **cohort** models **without covariates**. Not a data-summary screen.
 
-- **Kaplan–Meier (KM)** — survival curve for censored data
-- **Nelson–Aalen (NeA)** — cumulative hazard
+![Descriptive Analysis](../assets/sa/25.png)
 
-![Descriptive Analysis method cards](../assets/sa/25.png)
+## Methods
 
----
+| Model | What it does | When to use it |
+|-------|--------------|----------------|
+| **Kaplan-Meier** | Cohort survival \(S(t)\); median survival when defined | Baseline survival curve |
+| **Nelson-Aalen** | Cohort cumulative hazard \(H(t)\) | Cumulative hazard view |
 
-## What they do
+You must select at least one model here **or** on Survival Models before Start. You can run descriptive only, covariate only, or both.
 
-| Model | Role |
-|-------|------|
-| **Kaplan-Meier** | Cohort \(S(t)\); median survival when defined |
-| **Nelson-Aalen** | Cohort cumulative hazard \(H(t)\) |
+**They do not use** imputation, scaling, FS, or DR (`N/A` on Results). They have **no** Interpretability — use Visualization for curves.
 
-You must select **at least one** model on this page **or** on **Survival Models** before **Start Procedure**. You can run KM / Nelson–Aalen alone, covariate models alone, or both.
+## Common mistakes
 
-Click **i** on a card for the in-app description.
-
----
-
-## What they do not use
-
-Kaplan–Meier and Nelson–Aalen do **not** use imputation, scaling, feature selection, or dimensionality reduction. On `Final_Results.csv` those steps show as `N/A (not used)`.
-
-They also **cannot** be explained with SurvSHAP / SurvivalLIME / PDP — Interpretability will say methods are not available for descriptive models. Use **Visualization** for KM / Nelson–Aalen curves.
-
----
-
-## What to click
-
-1. Toggle **Kaplan-Meier** and/or **Nelson-Aalen**.
-2. Continue to **Survival Models** if you also want covariate (predictive) models.
-
-For a first run, enable **Kaplan-Meier** here plus **Cox Proportional Hazards** on Survival Models.
+- Looking for KM on the Survival Models page  
+- Expecting SurvSHAP for descriptive models  

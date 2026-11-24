@@ -1,6 +1,8 @@
-# Getting started — Build and package (maintainers)
+# Build and package
 
 How maintainers freeze QuadML after a working source install. End users can skip this page.
+
+Dependency pins: [Python requirements](python-requirements.md). Process roles / binaries: [Code structure](code-structure.md).
 
 Packaged outputs today:
 
@@ -88,7 +90,7 @@ Supported Apple Silicon packaged path. Helpers: `mac_packaging_overview()`, `mac
 - Post-build: `assert_mac_app_arm64` rejects Intel-only Mach-O (avoids Rosetta **Finding software**)
 - Artifact: **QuadML-macOS-app**[-date-sha] (`QuadML-macOS.app.zip`) — **14-day** Actions retention for smoke
 - Durable channel: attach the zip to **GitHub Releases** (`mac_release_attach_steps`)
-- Signing: **unsigned** today — see [macOS notes](04-macos-notes.md)
+- Signing: **unsigned** today — Gatekeeper: Right-click → Open
 
 ### Maintainer CI flow
 
@@ -99,8 +101,6 @@ Prefer CI over a local Mac freeze:
 3. On Apple Silicon: Right-click → Open (Gatekeeper).
 4. Smoke-test (below).
 
-Full step text: `mac_maintainer_ci_build_steps()` / [macOS notes](04-macos-notes.md).
-
 ### Durable Mac zip (GitHub Releases)
 
 Do **not** treat the Actions artifact as the only distribution channel.
@@ -108,8 +108,6 @@ Do **not** treat the Actions artifact as the only distribution channel.
 1. After a green Mac build, download `QuadML-macOS.app.zip`.
 2. On the version’s GitHub Release, attach that zip (UI or `gh release upload vX.Y.Z QuadML-macOS.app.zip --clobber`).
 3. Keep Windows Setup / portable assets on their existing release process.
-
-Details: [macOS notes — Durable distribution](04-macos-notes.md#durable-distribution-github-releases).
 
 ### Optional local Mac freeze
 

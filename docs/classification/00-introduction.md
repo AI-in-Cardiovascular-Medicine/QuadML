@@ -1,46 +1,30 @@
-# Classification — Introduction
+# Classification — Overview
 
-**Classification** predicts a **category** for each row in a tabular dataset. Typical examples are disease present vs absent, risk group, or any discrete label with two or more classes.
+**Classification** predicts which **group** a row of the dataset belongs to. It can be **binary** (two classes) or **multi-class** (three or more).
 
-In QuadML, Classification builds and compares full pipelines: you choose cleaning, imputation, scaling, feature selection, dimensionality reduction, and classifiers; the search tries every combination you enable, then reports metrics, plots, and explanations. Binary tasks can also set a **Decision Threshold** for hard-label metrics. Everything runs locally — no data is uploaded.
+In QuadML you build and compare full pipelines—cleaning, imputation, scaling, feature selection, dimensionality reduction, and classifiers, then review metrics, plots, and explanations. Binary tasks can set a **Decision Threshold** for hard-label metrics. Everything runs locally; no data is uploaded.
 
-Use this mode when you have a labeled table and want to find strong preprocessing + model combinations without writing code. For a continuous numeric outcome use Regression; for time-to-event data use Survival Analysis; for unlabeled grouping use Clustering.
+### Clinical examples
 
----
+- Presence of significant coronary artery disease: yes / no  
+- Response to cardiac resynchronization therapy: responder / non-responder  
+- Heart failure phenotype: HFrEF / HFmrEF / HFpEF  
 
-## Workflow map
+Use Classification for discrete labels. For a continuous outcome use Regression; for time-to-event use Survival Analysis; for unlabeled grouping use Clustering.
 
-After you click Classification on the left, the nested steps are:
+![Classification in the left navigation](../assets/class/Class01.png)
 
-![Class01](../assets/class/Class01.png)
+Settings for each step live under **Pipeline**. For a click-through first run, open the [Tutorial](walkthrough.md).
 
-| Order | Step | Role |
-| --- | --- | --- |
-| 1 | File Selection | Load data, label, ID, decision threshold, output folder |
-| 2 | Data Cleaning | Outlier / hygiene options (applied at Start Procedure) |
-| 3 | Imputation | Fill missing values (searched combinations) |
-| 4 | Scaling | Scale features (searched combinations) |
-| 5 | Feature Selection | Rank / drop original features |
-| 6 | Dimensionality Reduction | Compress remaining features (includes LDA) |
-| 7 | Classifiers | Choose classification models |
-| 8 | Data Splitting | Train/Test (or Train on all + External) |
-| 9 | Parameter Tuning | Search settings + Start Procedure |
-| 10 | Results | Pipeline metrics (Final_Results.csv) |
-| 11 | Visualization | Charts for metrics and diagnostics |
-| 12 | Interpretability | Explain a loaded fitted pipeline |
+### Suggested first configuration
 
-![Class02](../assets/class/Class02.png)
-
-## Suggested first configuration
-
-- One labeled `.csv` / `.xlsx`, Output Directory set
-- Cleaning: One preferred method
-- Imputation: **Simple Imputation**
-- Scaling: **Standard Scaler** (and optionally **None**)
-- Feature Selection: **Select From Model**
-- Dimensionality Reduction: **None**
-- Classifiers: two models (e.g., Logistic Regression + Random Forest)
-- Split: 80/20, Train on all data **off**
-- Parameter Tuning: Random Search, Fast budget → **Start Procedure**
-
-Then follow the [walkthrough](walkthrough.md).
+| Step | Choice |
+|------|--------|
+| Cleaning | **None** |
+| Imputation | **Simple Imputation** |
+| Scaling | **Standard Scaler** |
+| Feature Selection | **Select K Best** |
+| Dimensionality Reduction | **None** |
+| Models | Logistic Regression + Random Forest |
+| Split | 80/20, Train on all data **off** |
+| Search | Random Search, **Fast** or **Balanced** → **Start Procedure** |

@@ -2,103 +2,78 @@
 
 **Where**: Classification → **Visualization**
 
-Load Final_Results.csv in **Results** first. Charts read metrics and saved plot data from the search output folder.
+Charts for comparing pipelines and inspecting one selected pipeline. Load `Final_Results.csv` in **Results** first.
 
-![Class46](../assets/class/Class46.png)
+![Visualization](../assets/class/Class46.png)
 
-## What to click
+--8<-- "_snippets/visualization-usage.md"
 
-Choose which results to display (Train, Test, External, or combined splits). Prefer Test or External when judging generalization.
+Choose **Single Pipeline** or **Pipelines Comparison**, pick a pipeline, and set **Results to display** (prefer **Test** or **External**):
 
-Open charts from the available groups (all pipelines, compare selected, or one pipeline).
+![Single Pipeline and Results to display](../assets/class/Class47.png)
 
-Click Plot Explanations on the top bar for the full in-app plot text.
+## Comparing pipelines
 
-Use Analyze (Plot Analyzer) on a figure for a structured reading of the current plot.
+| Plot | What it shows |
+|------|----------------|
+| Single-metric plots | One metric across pipelines |
+| Metrics comparison | Several metrics together |
+| Heatmap | A metric for each combination of model and preprocessing |
+| Performance distribution | How scores are spread across the search |
+| Class distribution | How many rows are in each class |
+| Calibration curve | Whether predicted probabilities match observed frequencies |
+| Decision curve | Net benefit of using the model at different thresholds |
 
-Where shown, use Plot style (Bar / Lollipop / Dot) and CI whiskers for metric charts.
+**Pipelines Comparison** offers Combined Plot / Side by Side, All Combinations actions, and Selected Pipelines:
 
-![Class47](../assets/class/Class47.png)
+![Pipelines Comparison controls](../assets/class/Class49.png)
 
-![Class48](../assets/class/Class48.png)
+Single-metric comparison (for example Accuracy across pipelines):
 
-![Class49](../assets/class/Class49.png)
+![Accuracy comparison chart](../assets/class/Class50.png)
 
-![Class50](../assets/class/Class50.png)
+Metrics comparison across selected pipelines:
 
-## Chart groups (what you will find)
+![All metrics comparison](../assets/class/Class52.png)
 
-### Performance metric charts (many pipelines)
+Heatmap of one metric (model × dimensionality reduction):
 
-These charts summarize **all** (or many) searched pipelines at once, so you can rank combinations before shortlisting.
+![F1-score performance heatmap](../assets/class/Class51.png)
 
-| Chart | What it shows |
-| --- | --- |
-| Single-metric plots | One scalar metric across pipelines — Accuracy, ROC-AUC (plus OvO / Micro on multi-class), Specificity, NPV, Recall (Sensitivity), Precision (PPV), F1, MCC |
-| Metrics comparison | Several of those metrics together as bars or lines |
-| Heatmaps | Metric values by classifier × feature-pipeline grid |
-| Performance distribution | How metric scores are spread across the search |
-| Class distribution | Counts of true labels in the selected split (optional pie when there are few classes) |
-| Calibration curve | How well predicted probabilities match observed frequencies across pipelines |
-| Decision curve | Net benefit of treat / don’t treat strategies — **binary only** |
+All-metrics heatmap:
 
-![Class51](../assets/class/Class51.png)
+![All metrics performance heatmap](../assets/class/Class55.png)
 
-### Compare selected pipelines
+Combined ROC curves across pipelines:
 
-These use the same chart families as the all-pipelines performance views (metric bars, heatmaps, calibration, decision curve, and so on), but only for the pipelines you have added to the **comparison list** — typically a short shortlist from Results. Charts that show every combination stay under the many-pipelines group; use Compare Selected when you want side-by-side or overlay views of a few finalists without the full search clutter.
+![Combined ROC-AUC curves](../assets/class/Class54.png)
 
-![Class52](../assets/class/Class52.png)
+**Side by Side** confusion matrices:
 
-### One-pipeline diagnostic plots
+![Side by Side confusion matrix](../assets/class/Class56.png)
 
-These charts focus on a **single** selected pipeline (not the full search or the comparison list).
+## One pipeline
 
-| Plot | What it shows | Availability |
-| --- | --- | --- |
-| Confusion matrix | Predicted vs true labels after applying the class rule | Binary: File Selection **Decision Threshold** (Train-locked). Multi-class: highest-probability class (argmax) |
-| ROC curve | Ranking quality from predicted probabilities | Binary: one ROC. Multi-class: one-vs-rest ROC panels |
-| Precision–Recall / F1 | Performance when the positive class is rarer, or per-class F1 | Binary: Precision (PPV)–Recall (Sensitivity) curve. Multi-class: per-class F1 chart |
-| Class probability distribution | How predicted probabilities are spread | Binary only |
-| Cumulative gains & lift | How much better ranking is than random for the top fractions of the list | Binary only |
-| Decision curve | Net benefit of treat / don’t treat strategies across thresholds | Binary only |
+| Plot | What it shows |
+|------|----------------|
+| Confusion matrix | Correct and wrong predictions per class |
+| ROC curve | Ranking quality at every threshold (binary) |
+| Precision–recall curve | Performance when the positive class is rare |
+| Probability distribution | How predicted probabilities are spread |
+| Cumulative gains and lift | How much better than random the top-ranked rows are |
+| Decision curve | Net benefit across thresholds |
 
-![Class53](../assets/class/Class53.png)
+ROC curve for a selected pipeline:
 
-### Dedicated curve sections
+![ROC curve for one pipeline](../assets/class/Class53.png)
 
-ROC-AUC curves (individual and comparison overlays; multi-class OvR panels)
+Calibration curves for a selected pipeline:
 
-![Class54](../assets/class/Class54.png)
+![Classification calibration curves](../assets/class/Class48.png)
 
-![Class55](../assets/class/Class55.png)
-
-## Bootstrap CI whiskers
-
-Metric bar / lollipop / dot charts can show 95% bootstrap CIs when Parameter Tuning had Bootstrap CIs enabled. Heatmaps, ROC/PR, calibration, and confusion matrices stay point-only.
-
-## Quick guide — which plot to open
-
-| Goal | Start with |
-| --- | --- |
-| Rank many pipelines | Metric bars / heatmaps |
-| Shortlist finalists | Compare Selected |
-| Understand errors | Confusion matrix |
-| Threshold-free ranking | ROC / ROC-AUC |
-| Imbalanced positive class | PR curve |
-| Probability quality | Calibration, class probability distribution |
-| Clinical treat / don’t treat (binary) | Decision curve |
-
-For full plot wording, use Plot Explanations in the app. Metric definitions stay under Results → Metric Explanations.
-
-From Side by Side section in the Visualization part, you can compare the plots of different combos in Train/Test/External or combined splits.
-
-![Class56](../assets/class/Class56.png)
 
 ## Common mistakes
 
-Comparing plots from two different dated run folders
-
-Reading a Train curve as performance on new data
-
-Expecting Decision Curve / PDP-style tools here for multi-class when they are binary-only
+- Opening Visualization before any successful combination finished
+- Mixing plots from an older dated folder after starting a new run
+- Reading Train-only plots as trustworthy absolute performance

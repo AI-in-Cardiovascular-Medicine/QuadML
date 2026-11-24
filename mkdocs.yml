@@ -4,20 +4,20 @@ site_url: https://ai-in-cardiovascular-medicine.github.io/QuadML/
 repo_url: https://github.com/AI-in-Cardiovascular-Medicine/QuadML
 repo_name: AI-in-Cardiovascular-Medicine/QuadML
 
-# Developer notes are kept in the repo but not published on the docs site.
+# Developer notes and snippet sources are not published as standalone pages.
 exclude_docs: |
   developer-notes/
+  _snippets/
 
 theme:
   name: material
-  # Use local/system fonts (Times New Roman via extra.css), not Google Fonts.
+  # Use local/system fonts (Arial via extra.css), not Google Fonts.
   font: false
   palette:
     primary: custom
     accent: custom
   features:
     - navigation.tabs
-    - navigation.sections
     - navigation.expand
     - navigation.top
     - navigation.footer
@@ -25,105 +25,86 @@ theme:
     - search.highlight
     - content.code.copy
     - toc.follow
-
 nav:
   - Home: index.md
   - Getting started:
-      - Overview: getting-started/index.md
-      - Introduction: getting-started/00-overview.md
-      - System requirements: getting-started/01-system-requirements.md
-      - Install from source: getting-started/02-install-from-source.md
-      - Install Windows executable: getting-started/03-install-windows-exe.md
-      - macOS notes: getting-started/04-macos-notes.md
-      - First run: getting-started/05-first-run.md
-      - Python requirements: getting-started/06-python-requirements.md
-      - Prepare the data: getting-started/07-prepare-the-data.md
+      - Installation: getting-started/installation.md
       - Troubleshooting: getting-started/08-troubleshooting.md
-      - Build and package: getting-started/09-build-and-package.md
-      - About: getting-started/10-about.md
-      - Quick start walkthrough: getting-started/walkthrough.md
   - Classification:
-      - Overview: classification/index.md
-      - Introduction: classification/00-introduction.md
-      - File Selection: classification/01-file-selection.md
-      - Data Cleaning: classification/02-data-cleaning.md
-      - Imputation: classification/03-imputation.md
-      - Scaling: classification/04-scaling.md
-      - Feature Selection: classification/05-feature-selection.md
-      - Dimensionality Reduction: classification/06-dimensionality-reduction.md
-      - Classifiers: classification/07-classifiers.md
-      - Data Splitting: classification/08-data-splitting.md
-      - Parameter Tuning: classification/09-parameter-tuning.md
-      - Results: classification/10-results.md
-      - Visualization: classification/11-visualization.md
-      - Interpretability: classification/12-interpretability.md
-      - Walkthrough: classification/walkthrough.md
+      - Overview: classification/00-introduction.md
+      - Pipeline:
+          - File selection: classification/01-file-selection.md
+          - Data cleaning: classification/02-data-cleaning.md
+          - Imputation: classification/03-imputation.md
+          - Scaling: classification/04-scaling.md
+          - Feature selection: classification/05-feature-selection.md
+          - Dimensionality reduction: classification/06-dimensionality-reduction.md
+          - Classifiers: classification/07-classifiers.md
+          - Data splitting: classification/08-data-splitting.md
+          - Parameter tuning: classification/09-parameter-tuning.md
+      - Results:
+          - Metrics: classification/10-results.md
+          - Visualization: classification/11-visualization.md
+          - Interpretability: classification/12-interpretability.md
+      - Tutorial: classification/walkthrough.md
   - Regression:
-      - Overview: regression/index.md
-      - Introduction: regression/00-introduction.md
-      - File Selection: regression/01-file-selection.md
-      - Data Cleaning: regression/02-data-cleaning.md
-      - Imputation: regression/03-imputation.md
-      - Scaling: regression/04-scaling.md
-      - Feature Selection: regression/05-feature-selection.md
-      - Dimensionality Reduction: regression/06-dimensionality-reduction.md
-      - Regressors: regression/07-regressors.md
-      - Data Splitting: regression/08-data-splitting.md
-      - Parameter Tuning: regression/09-parameter-tuning.md
-      - Results: regression/10-results.md
-      - Visualization: regression/11-visualization.md
-      - Interpretability: regression/12-interpretability.md
-      - Walkthrough: regression/walkthrough.md
+      - Overview: regression/00-introduction.md
+      - Pipeline:
+          - File selection: regression/01-file-selection.md
+          - Data cleaning: regression/02-data-cleaning.md
+          - Imputation: regression/03-imputation.md
+          - Scaling: regression/04-scaling.md
+          - Feature selection: regression/05-feature-selection.md
+          - Dimensionality reduction: regression/06-dimensionality-reduction.md
+          - Regressors: regression/07-regressors.md
+          - Data splitting: regression/08-data-splitting.md
+          - Parameter tuning: regression/09-parameter-tuning.md
+      - Results:
+          - Metrics: regression/10-results.md
+          - Visualization: regression/11-visualization.md
+          - Interpretability: regression/12-interpretability.md
+      - Tutorial: regression/walkthrough.md
   - Survival analysis:
-      - Overview: survival/index.md
-      - Introduction: survival/00-introduction.md
-      - File Selection: survival/01-file-selection.md
-      - Data Cleaning: survival/02-data-cleaning.md
-      - Imputation: survival/03-imputation.md
-      - Scaling: survival/04-scaling.md
-      - Feature Selection: survival/05-feature-selection.md
-      - Dimensionality Reduction: survival/06-dimensionality-reduction.md
-      - Descriptive Analysis: survival/07-descriptive-analysis.md
-      - Survival Models: survival/08-survival-models.md
-      - Data Splitting: survival/09-data-splitting.md
-      - Parameter Tuning: survival/10-parameter-tuning.md
-      - Results: survival/11-results.md
-      - Visualization: survival/12-visualization.md
-      - Interpretability: survival/13-interpretability.md
-      - Walkthrough: survival/walkthrough.md
+      - Overview: survival/00-introduction.md
+      - Pipeline:
+          - File selection: survival/01-file-selection.md
+          - Data cleaning: survival/02-data-cleaning.md
+          - Imputation: survival/03-imputation.md
+          - Scaling: survival/04-scaling.md
+          - Feature selection: survival/05-feature-selection.md
+          - Dimensionality reduction: survival/06-dimensionality-reduction.md
+          - Descriptive analysis: survival/07-descriptive-analysis.md
+          - Models: survival/08-survival-models.md
+          - Data splitting: survival/09-data-splitting.md
+          - Parameter tuning: survival/10-parameter-tuning.md
+      - Results:
+          - Metrics: survival/11-results.md
+          - Visualization: survival/12-visualization.md
+          - Interpretability: survival/13-interpretability.md
+      - Tutorial: survival/walkthrough.md
   - Clustering:
-      - Overview: clustering/index.md
-      - Introduction: clustering/00-introduction.md
-      - File Selection: clustering/01-file-selection.md
-      - Data Cleaning: clustering/02-data-cleaning.md
-      - Imputation: clustering/03-imputation.md
-      - Scaling: clustering/04-scaling.md
-      - Feature Selection: clustering/05-feature-selection.md
-      - Dimensionality Reduction: clustering/06-dimensionality-reduction.md
-      - Clustering Models: clustering/07-clustering-models.md
-      - Search Settings: clustering/08-search-settings.md
-      - Results: clustering/09-results.md
-      - Visualization: clustering/10-visualization.md
-      - Walkthrough: clustering/walkthrough.md
-  - Shared:
-      - Overview: shared/index.md
-      - Introduction: shared/00-introduction.md
-      - Application shell: shared/01-application-shell.md
-      - File Selection: shared/02-file-selection.md
-      - Data Cleaning: shared/03-data-cleaning.md
-      - Imputation: shared/04-imputation.md
-      - Scaling: shared/05-scaling.md
-      - Feature Selection: shared/06-feature-selection.md
-      - Dimensionality Reduction: shared/07-dimensionality-reduction.md
-      - Data Splitting: shared/08-data-splitting.md
-      - Parameter Tuning: shared/09-parameter-tuning.md
-      - Results: shared/10-results.md
-      - Visualization: shared/11-visualization.md
-      - Interpretability: shared/12-interpretability.md
-      - Start, Stop, and resources: shared/13-start-stop-and-resources.md
-      - Outputs and reports: shared/14-outputs-abbreviations-reports.md
-      - Shared modules map: shared/15-shared-modules-map.md
-      - Walkthrough: shared/walkthrough.md
+      - Overview: clustering/00-introduction.md
+      - Pipeline:
+          - File selection: clustering/01-file-selection.md
+          - Data cleaning: clustering/02-data-cleaning.md
+          - Imputation: clustering/03-imputation.md
+          - Scaling: clustering/04-scaling.md
+          - Feature selection: clustering/05-feature-selection.md
+          - Dimensionality reduction: clustering/06-dimensionality-reduction.md
+          - Models: clustering/07-clustering-models.md
+          - Search settings: clustering/08-search-settings.md
+      - Results:
+          - Metrics: clustering/09-results.md
+          - Visualization: clustering/10-visualization.md
+      - Tutorial: clustering/walkthrough.md
+  - About:
+      - About QuadML: getting-started/10-about.md
+      - Changelog: about/changelog.md
+  - For developers:
+      - Code structure: developers/code-structure.md
+      - Python requirements: developers/python-requirements.md
+      - Build and package: developers/build-and-package.md
+      - Contributing: developers/contributing.md
 
 markdown_extensions:
   - admonition
@@ -133,6 +114,11 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight:
       anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.snippets:
+      base_path: [docs]
+      check_paths: true
   - tables
   - toc:
       permalink: true

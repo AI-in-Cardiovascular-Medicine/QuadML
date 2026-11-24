@@ -1,6 +1,8 @@
-# Getting started — Python requirements (dependencies)
+# Python requirements
 
-Canonical pin file (Windows / Linux): **`requirements.txt`** at the repo root.  
+For developers and source installs. Packaged-app users can skip this page — see [Installation](../getting-started/installation.md).
+
+Canonical pin file (Windows / Linux): **`requirements.txt`** at the application repo root.  
 Install with: `pip install -r requirements.txt` inside the project `.venv`.
 
 **macOS:** use **`requirements-mac.txt`** (same stack; **PyQt5==5.15.11** for arm64 wheels). Pin constants and helpers: `src/shared/app/mac_modifications.py`. Windows/Linux keep **`requirements.txt`** unchanged.
@@ -56,6 +58,24 @@ Exact versions change only when maintainers update `requirements.txt` / `require
 
 ---
 
+## Survival / deep-learning runtime notes
+
+| Topic | Detail |
+|-------|--------|
+| DeepSurv / pycox data dirs (frozen) | Windows `%LOCALAPPDATA%\QuadML\pycox_data`; macOS `~/Library/Application Support/QuadML/pycox_data` |
+| SurvSHAP on packaged Mac | Frozen `.app` may force SurvSHAP Compute to `n_jobs=1` (**H11**) — slower than Windows/Linux; source Mac / other OSes stay parallel |
+| `survshap` | Required for native SurvSHAP(t); prefer a full successful verify |
+
+## macOS runtime notes
+
+| Topic | Detail |
+|-------|--------|
+| Soft throttle | Resource Usage still plans the search; under memory pressure QuadML may shrink concurrency or defer the next combination (does not kill an in-flight combo) |
+| Logs / data | `~/Library/Application Support/QuadML` (`logs/`, `pycox_data/`) |
+| Requirements | Always use `requirements-mac.txt` on Apple Silicon |
+
+---
+
 ## Verify after install
 
 **Windows:**
@@ -72,11 +92,11 @@ python src/verify_quadml_bundle.py
 
 Checks critical imports (PyQt5, sklearn, shap, sksurv, survshap, torch/pycox, genieclust, hdbscan, boruta, …) and presence of entry files / packaged source trees.
 
-`survshap` is required for native SurvSHAP(t) plots; approximation paths may still work if it is missing — prefer a full successful verify.
-
 ---
 
 ## Disk and time
 
 - Full install includes **PyTorch** and a large scientific stack.
 - Plan for multi‑GB download/cache on a clean machine.
+
+See also: [Build and package](build-and-package.md) · [Code structure](code-structure.md)

@@ -1,83 +1,44 @@
-# Classification — Parameter Tuning
+# Classification — Parameter tuning
 
 **Where**: Classification → **Parameter Tuning**
 
-On Parameter Tuning you set the search budget, algorithm, and cross-validation, then start the combinatorial run over the preprocessing and classifier choices from the earlier steps.
+Sets how QuadML searches the combinations you selected, then starts the run (**Start Procedure**). Also covers Stop, resources, imbalance handling, and Rebuild Results.
 
-![Class33](../assets/class/Class33.png)
+![Parameter Tuning overview](../assets/class/Class33.png)
 
-## What to click
+--8<-- "_snippets/search-run.md"
 
-**Search controls**
+![Search Budget and search algorithm](../assets/class/Class34.png)
 
-**Search Budget**: Fast / Balanced / Thorough — scales Random Search n_iter and suggested CV folds. It does not remove methods you already checked.
+![Bootstrap CIs and Resource Usage](../assets/class/Class37.png)
 
-**Search algorithm**: Grid Search or Random Search (Random Search has Iterations / n_iter).
+![Selected configuration tree](../assets/class/Class38.png)
 
-Cross-validation method and number of splits (used inside Train).
+--8<-- "_snippets/start-stop-resources.md"
 
-![Class34](../assets/class/Class34.png)
+![Start / Stop / Reset / Export / Rebuild Results](../assets/class/Class39.png)
 
-![Class35](../assets/class/Class35.png)
+![Progress during a search](../assets/class/Class40.png)
 
-### Classification-only:
+## Classification-only: Imbalance Handling
 
-**Imbalance Handling**:
+| Setting | Meaning |
+|---------|---------|
+| **Auto** (recommended) | Let QuadML decide from class balance |
+| **On** / **Off** | Force imbalance handling on or off |
+| Balance strategy | **None** or **SMOTE** when handling is active |
 
-Auto (recommended) | On | Off
+When imbalance handling is active, search may prefer stratified CV and F1/MCC-oriented scoring.
 
-Balance strategy (when handling is active): None or SMOTE.
+![Imbalance Handling and SMOTE](../assets/class/Class36.png)
 
-When imbalance handling is active, search may prefer stratified CV and F1/MCC-oriented scoring; ranking can prefer test F1 and MCC over accuracy alone. See the info dialog for details.
-
-![Class36](../assets/class/Class36.png)
-
-**Optional Bootstrap CIs** — 95% percentile intervals on scalar metrics. Enable here and re-run; QuadML resamples the evaluation split and reuses stored predictions (does not refit models or retune the Train-locked decision threshold).
-
-**Resource Usage**: CPU % and RAM % (default 50 / 50).
-
-![Class37](../assets/class/Class37.png)
-
-### Configuration tree and run
-
-Review the selected configuration tree (every imputer × scaler × FS × DR × classifier you checked).
-
-Start Procedure — reads data, cleans, searches, writes **Final_Results.csv**.
-
-Stop Procedure — cancels; partial combo results may remain.
-
-If the procedure breaks in the middle of run, clicking on **Rebuild Results**, builds Final_Results.csv file for completed combinations until that time.
-
-Other actions as labeled: Reset Configuration, Export Procedure Report, Rebuild Results.
-
-In the Progress card, you can see the combos running or the combo that finishes recently. Also, progress bar shows how the procedure is running and live information about CPU/RAM is visible.
-
-![Class38](../assets/class/Class38.png)
-
-Click **“i”** button next to Start Procedure, search budget, CV, imbalance, and bootstrap for the in-app wording.
-
-![Class39](../assets/class/Class39.png)
-
-![Class40](../assets/class/Class40.png)
-
-## What is written to disk
-
-In the dated run folder:
-
-Final_Results.csv — one row per pipeline combination
-
-combo_results/ JSON (can rebuild the CSV if a run is interrupted)
-
-Fitted pipelines (.pkl), prepared data, plot caches
-
-Optional class_balance_report.json when imbalance reporting is active
-
-Procedure report (if exported)
+**Point:** Check the configuration tree before Start combination count is the product of every checked option. Use **Fast** or **Balanced** for first runs.
 
 ## Common mistakes
 
-Starting with every method selected — combination count is a product
-
-Ignoring File Selection's Decision Threshold when comparing binary hard-label metrics
-
-Changing File Selection columns after a long configure pass without checking the tree
+- Starting with every method selected combination count is a product
+- Ignoring Resource Usage on large searches
+- Changing File Selection roles after configuring without re-checking the tree
+- Closing the app instead of **Stop**
+- Setting CPU/RAM to 100% on a machine you still need for other work
+- Starting again without noticing a new dated folder was created

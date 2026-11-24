@@ -1,62 +1,58 @@
-# QuadML user documentation
+# QuadML
 
-**QuadML** is a point-and-click machine-learning framework for tabular data. You choose cleaning, imputation, scaling, feature selection, dimensionality reduction, and models; QuadML searches the combinations you enable, then reports metrics, plots, and explanations. Everything runs **locally** — no data is uploaded.
+**Click. Compare. Decide.** Machine learning for tabular data — without writing a line of code.
 
-**App version:** 1.0
-
-Button and method names in these pages match the GUI. In-app **"i"** buttons, **Metric Explanations**, and **Plot Explanations** remain the source for full on-screen definitions.
+From raw spreadsheet to ranked pipelines: build, search, and explain **classification**, **regression**, **survival**, and **clustering** on your own machine. Your data never leaves your computer.
 
 ![QuadML Welcome](assets/getting-started/welcome.png)
 
 ---
 
-## Start here
+## Why QuadML
 
-| Goal | Go to |
-|------|--------|
-| Install, first launch, data prep, troubleshooting | [Getting started](getting-started/index.md) · [Quick start walkthrough](getting-started/walkthrough.md) |
-| First successful run in one task | That mode’s **walkthrough** (links below) |
-| Controls shared across modes (Welcome, Start/Stop, outputs) | [Shared](shared/index.md) |
-| Authors, citation, license | [About](getting-started/10-about.md) |
+- **No coding needed** — follow clear steps in the desktop app: pick methods, start a search, and read results without writing code.
+- **Data stays local** — nothing is uploaded; runs, models, and plots stay in the Output Directory you choose.
+- **Four tasks in one place** — **classification**, **regression**, **clustering**, and right-censored **survival analysis**.
+- **Compare pipelines, not just a winner** — every combination you enable is searched and scored, so you can rank, plot, and explain alternatives side by side.
+
+## Who it is for
+
+Data scientists, clinicians, and researchers who work with tabular data — including those **without** coding experience.
+
+---
+
+## How to start
+
+1. **[Install QuadML](getting-started/installation.md)** — Windows, macOS, Linux, or from source  
+2. Open a mode and follow its **Tutorial** (Classification, Regression, Survival, or Clustering)  
+3. If something fails — **[Troubleshooting](getting-started/08-troubleshooting.md)**
+
+| Download | Link |
+|----------|------|
+| Windows / macOS / Linux builds | [ai-cvm.org/QuadML](https://ai-cvm.org/QuadML/) |
+| Lab project page | [ai-cvm.org/quadml](https://ai-cvm.org/quadml/) |
+| Documentation | [GitHub Pages](https://ai-in-cardiovascular-medicine.github.io/QuadML/) |
+| Public docs repository | [GitHub — QuadML](https://github.com/AI-in-Cardiovascular-Medicine/QuadML) |
 
 ---
 
 ## Modes
 
-Each mode follows the left-nav step order in the app. Every mode section has an **Introduction**, step pages, and an end-to-end **walkthrough**.
-
-| Mode | Outcome | Start |
-|------|---------|--------|
-| [Classification](classification/index.md) | Discrete classes (binary / multi-class) | [Introduction](classification/00-introduction.md) · [Walkthrough](classification/walkthrough.md) |
-| [Regression](regression/index.md) | Continuous numeric target | [Introduction](regression/00-introduction.md) · [Walkthrough](regression/walkthrough.md) |
-| [Survival Analysis](survival/index.md) | Duration + event / censor | [Introduction](survival/00-introduction.md) · [Walkthrough](survival/walkthrough.md) |
-| [Clustering](clustering/index.md) | Unlabeled groups | [Introduction](clustering/00-introduction.md) · [Walkthrough](clustering/walkthrough.md) |
-
-**Quick differences**
-
-- **Classification** — Label Column, Task Type, Decision Threshold (binary), Imbalance Handling, LDA available
-- **Regression** — numeric Target (Label Column in the GUI); error / fit metrics (MAE, RMSE, R², …); no class imbalance / LDA
-- **Survival** — Duration + Event, Eval. Horizons, Descriptive Analysis (KM / Nelson–Aalen), SurvSHAP; calibrate before ranking on C-index alone
-- **Clustering** — optional Benchmark Label only; **Search Settings** (no Data Splitting / Parameter Tuning); no Interpretability page
+| Mode | Outcome | Start here |
+|------|---------|------------|
+| [Classification](classification/00-introduction.md) | Discrete classes | [Overview](classification/00-introduction.md) · [Tutorial](classification/walkthrough.md) |
+| [Regression](regression/00-introduction.md) | Continuous numeric target | [Overview](regression/00-introduction.md) · [Tutorial](regression/walkthrough.md) |
+| [Survival analysis](survival/00-introduction.md) | Duration + event / censor | [Overview](survival/00-introduction.md) · [Tutorial](survival/walkthrough.md) |
+| [Clustering](clustering/00-introduction.md) | Unlabeled groups | [Overview](clustering/00-introduction.md) · [Tutorial](clustering/walkthrough.md) |
 
 ---
 
-## Shared
+## Citation and authors
 
-Cross-mode pages for the application shell and reusable steps under `src/shared/` (File Selection through Interpretability, Start/Stop, abbreviations, procedure reports):
+Developed by the [AI in Cardiovascular Medicine (AI-CVM)](https://ai-cvm.org/) laboratory, Bern University Hospital / University of Bern.
 
-→ **[Shared documentation](shared/index.md)** · [Cross-mode walkthrough](shared/walkthrough.md) · [Introduction](shared/00-introduction.md)
+**Cite:** Hamed Mirzakhani, Giovanni Baj, Pooya Mohammadi Kazaj, Chaimae Bahou, Ali Hashemi Gheinani, Christoph Gräni, Isaac Shiri. *QuadML: a general-purpose, open-source executable machine learning framework for supervised and unsupervised learning.* 2026.
 
-Use Shared when a control appears in more than one mode, or when you need Welcome, theme, Start/Stop, or run-folder outputs. Use a mode manual for outcome-specific metrics, models, and plots.
+Full citation, license, and disclaimer: [About QuadML](getting-started/10-about.md).
 
----
-
-## Typical workflow
-
-1. Install and launch — [Getting started](getting-started/index.md)
-2. Prepare a `.csv` / `.xlsx` — [Prepare the data](getting-started/07-prepare-the-data.md)
-3. Open one mode → **File Selection** (roles + **Output Directory**)
-4. Keep preprocessing small → pick a few models → **Start Procedure**
-5. Read **Results** → **Visualization** → **Interpretability** (where available)
-
-Each **Start Procedure** writes a dated folder `YYYY-MM-DD_HH-MM-SS` under your Output Directory, including `Final_Results.csv`.
+**App version:** 1.0 · Research use only (not a medical device).

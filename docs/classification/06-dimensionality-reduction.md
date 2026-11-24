@@ -1,41 +1,19 @@
-# Classification — Dimensionality Reduction
+# Classification — Dimensionality reduction
 
-**Where**: Classification → **Dimensionality Reduction (DR)**
+**Where**: Classification → **Dimensionality Reduction**
 
-Dimensionality Reduction is a sequential step after Feature Selection. It compresses the remaining features. **None** means no extra projection.
+Compresses features after Feature Selection. Classification includes **LDA** (supervised).
 
-![Class27](../assets/class/Class27.png)
+![Dimensionality Reduction](../assets/class/Class27.png)
 
-## Methods available in Classification
+--8<-- "_snippets/dimensionality-reduction.md"
 
-| Method | Notes |
-| --- | --- |
-| None | Skip DR |
-| Principal Component Analysis | Unsupervised components |
-| Independent Component Analysis | Unsupervised components |
-| Kernel Principal Component Analysis | Nonlinear kernel PCA |
-| Linear Discriminant Analysis | Supervised; Classification-only DR (needs labels) |
+Method cards (None, PCA, ICA, Kernel PCA, LDA) and component settings:
 
-Every FS × DR pair is legal in Classification. Empty lists default to None for that step.
-
-![Class28](../assets/class/Class28.png)
-
-## What to click
-
-Toggle methods to include. Keep None unless you already know you want components.
-
-Click **“i”** button for method notes.
-
-Use extra configs where shown (e.g., number of components / variances retained for PCA).
-
-## What is written to disk
-
-Component pipelines are stored with the combination. Results labels use PCA, ICA, KPCA, LDA, or No DR.
-
-When DR is None, Interpretability can show original (pre-scale) feature values on some plots while the model still uses scaled space. After PCA / ICA / Kernel PCA / LDA, explanations use the compressed component space.
+![Dimensionality Reduction algorithms](../assets/class/Class28.png)
 
 ## Common mistakes
 
-Expecting LDA in Regression or Clustering (Classification-only)
-
-Selecting many DR methods on the first run without None
+- Looking for **LDA** outside Classification
+- Many DR methods without a **None** baseline
+- Pairing Clustering **Laplacian Score** with non-None DR

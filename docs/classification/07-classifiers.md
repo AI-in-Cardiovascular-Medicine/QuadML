@@ -2,46 +2,39 @@
 
 **Where**: Classification → **Classifiers**
 
-Select one or more models. Each selected model is crossed with your imputation × scaling × feature selection × dimensionality reduction choices.
+This step picks the **classification algorithms** that map features to class labels. Each checked classifier is trained and evaluated as part of the search; hyperparameters for those models are explored later on **Parameter Tuning**, not typed by hand here.
 
-![Class29](../assets/class/Class29.png)
+Every selected classifier is crossed with every Imputation × Scaling × Feature Selection × Dimensionality Reduction combination you enabled earlier, so the total number of pipelines is a product of those choices.
 
-## Models (GUI names)
+![Classifiers](../assets/class/Class29.png)
 
-| GUI name | Short code on Results |
-| --- | --- |
-| Logistic Regression | LR |
-| Lasso Regression | LASSO LR |
-| Elastic Net | (Elastic Net logistic) |
-| Decision Tree | DT |
-| K-Nearest Neighbors | KNN |
-| Support Vector Classifier | SVC |
-| Random Forest | RF |
-| AdaBoost | AdaB |
-| Extra Trees | ExTr |
-| Bagging | Bag |
-| Gradient Boosting | GB |
-| XGBoost | XGB |
-| Naive Bayes | NB |
-| Multi-Layer Perceptron | MLP |
-| Stacking | Stk |
+## Classifiers
 
-![Class30](../assets/class/Class30.png)
+| Classifier | How it works | Short code |
+|-------|--------------|------------|
+| Logistic Regression | Linear model of the probability of the outcome | LR |
+| Lasso Regression | Logistic regression that shrinks some coefficients to zero | LASSO LR |
+| Elastic Net | Logistic regression with a mix of Lasso and Ridge penalties | ENet |
+| Decision Tree | A series of yes/no rules on the features | DT |
+| K-Nearest Neighbors | Predicts from the most similar rows in the training data | KNN |
+| Support Vector Classifier | Finds the boundary that best separates the classes | SVC |
+| Random Forest | Averages many decision trees on random subsets | RF |
+| Extra Trees | Like Random Forest, with more randomly chosen splits | ExTr |
+| Bagging | Averages many copies of a model on resampled data | Bag |
+| AdaBoost | Builds models one after another, focusing on mistakes | AdaB |
+| Gradient Boosting | Builds trees sequentially, each correcting previous errors | GB |
+| XGBoost | Optimized, regularized gradient boosting | XGB |
+| Naive Bayes | Uses probabilities, assuming features are independent | NB |
+| Multi-Layer Perceptron | A small neural network | MLP |
+| Stacking | Combines several models with a final model | Stk |
 
-## What to click
+**Unselect All** clears every classifier before you pick a smaller set for a first run:
 
-Toggle models to include (or Select All / Unselect All).
+![Classifiers Unselect All](../assets/class/Class30.png)
 
-Click **“i”** button on a card for how the method works in QuadML, search notes, and a library link.
-
-For a first run, two or three models is enough (e.g., Logistic Regression + Random Forest).
-
-## What is written to disk
-
-Fitted classifiers live inside saved pipelines (.pkl) under the dated run folder, named by combination.
+**Point:** Runtime grows with every option selected. For a first run, use **Logistic Regression** and **Random Forest**. **Stacking** and **Multi-Layer Perceptron** are much slower.
 
 ## Common mistakes
 
-Enabling every classifier plus every imputer/scaler/FS on a large dataset.
-
-Expecting Stacking or MLP to finish as fast as Logistic Regression.
+- Enabling every classifier plus every imputer / scaler / FS / DR method  
+- Expecting Stacking or MLP to finish as fast as Logistic Regression  

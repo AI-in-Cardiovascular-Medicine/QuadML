@@ -1,57 +1,34 @@
-# Regression — Regressors
+# Regression — Models
 
 **Where**: Regression → **Regressors**
 
-**Regressors** are the models that predict the numeric **Target Column**. Check one or more models; each checked model is crossed with every Imputation × Scaling × Feature Selection × Dimensionality Reduction combination you enabled earlier. Hyperparameters are explored later on **Parameter Tuning** (Grid or Random Search), not typed by hand as the main workflow on this page.
+Choose regression models to search. Each checked model is crossed with every Imputation × Scaling × FS × DR combination you enabled.
 
-Linear models and **SVR** usually need Scaling; many tree ensembles can work with **None** scaling. For a first run, two or three models is enough (for example **Linear Regression** + **Random Forest**).
+![Regressors](../assets/reg/21.png)
 
-![regressor methods](../assets/reg/21.png)
+## Models
 
----
+| Model | How it works | Short code |
+|-------|--------------|------------|
+| Linear Regression | Fits a linear combination of features to the target | LinReg |
+| Ridge Regression | Linear model with L2 shrinkage | Ridge |
+| Lasso Regression | Linear model with L1 shrinkage (can zero coefficients) | Lasso |
+| Elastic Net | Mix of L1 and L2 penalties | ENet |
+| Decision Tree | Yes/no rules on features | DT |
+| K-Nearest Neighbors | Predicts from similar training rows | KNN |
+| Support Vector Regressor | Margin-based regression in feature space | SVR |
+| Random Forest | Averages many decision trees | RF |
+| Extra Trees | Like Random Forest with more random splits | ExTr |
+| Bagging | Averages models on resampled data | Bag |
+| AdaBoost | Sequential models focusing on hard rows | AdaB |
+| Gradient Boosting | Sequential trees correcting previous errors | GB |
+| XGBoost | Optimized, regularized gradient boosting | XGB |
+| Multi-Layer Perceptron | Small neural network | MLP |
+| Stacking | Combines several models with a final model | Stk |
 
-## Models (GUI names)
-
-| GUI name | Short code on Results |
-|----------|----------------------|
-| Linear Regression | LinReg |
-| Ridge Regression | Ridge |
-| Lasso Regression | Lasso |
-| Elastic Net | ENet |
-| Decision Tree | DT |
-| K-Nearest Neighbors | KNN |
-| Support Vector Regressor | SVR |
-| Random Forest | RF |
-| AdaBoost | AdaB |
-| Extra Trees | ExTr |
-| Bagging | Bag |
-| Gradient Boosting | GB |
-| XGBoost | XGB |
-| Multi-Layer Perceptron | MLP |
-| Stacking | Stk |
-
-Stacking and MLP are typically slower than Linear Regression or a small Random Forest.
-
-![the Regressors page with Select All / Unselect All visible](../assets/reg/22.png)
-
----
-
-## What to click
-
-1. Toggle models to include (or **Select All** / **Unselect All**).
-2. Click **i** on a card for how the method works in QuadML, search notes, and a library link.
-3. Continue to **Data Splitting** and **Parameter Tuning** to set the split and start the search.
-
----
-
-## What is written to disk
-
-Fitted regressors live inside saved pipelines (`.pkl`) under the dated run folder, named by combination (including short codes for earlier steps and the model).
-
----
+**Tip:** For a first run, use **Linear Regression** and **Random Forest**. **Stacking** and **MLP** are much slower. Prefer scaling for linear models and SVR.
 
 ## Common mistakes
 
-- Enabling every regressor plus every imputer / scaler / FS / DR method on a large dataset — the product grows multiplicatively
-- Expecting **Stacking** or **MLP** to finish as fast as Linear Regression
-- Running linear models or SVR with **None** scaling only when feature ranges differ a lot
+- Enabling every regressor plus every preprocessor  
+- Linear / SVR pipelines with **None** scaling only on mixed-scale features  

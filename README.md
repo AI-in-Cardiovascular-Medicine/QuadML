@@ -228,14 +228,14 @@ pyinstaller src/QuadML_mac.spec
 ```
 
 - **Windows:** GitHub Actions → **Build Windows exe** (manual, or on a `vX.Y.Z` tag) builds `QuadML_Setup_<version>.exe` with the same `src/build_windows.ps1` used locally; tag builds attach the installer to the Release.
-- **macOS:** GitHub Actions → **Build macOS app** is **manual** (`workflow_dispatch` on Apple Silicon). The zip is for smoke testing or attaching to [Releases](https://github.com/AI-in-Cardiovascular-Medicine/QuadML/releases); it is **not** an automatic notarized Mac release. See [`docs/getting-started/04-macos-notes.md`](docs/getting-started/04-macos-notes.md) (`mac_readme_build_blurb()`).
+- **macOS:** GitHub Actions → **Build macOS app** is **manual** (`workflow_dispatch` on Apple Silicon). The zip is for smoke testing or attaching to [Releases](https://github.com/AI-in-Cardiovascular-Medicine/QuadML/releases); it is **not** an automatic notarized Mac release. See [`docs/developers/build-and-package.md`](docs/developers/build-and-package.md).
 
 ---
 
 ## Documentation
 
 - 📖 **Online user guide:** [https://ai-in-cardiovascular-medicine.github.io/QuadML/](https://ai-in-cardiovascular-medicine.github.io/QuadML/) (MkDocs Material, published from `docs/` via GitHub Pages)
-- 📁 **Source manuals:** [`docs/`](docs/) (Getting started, Classification, Regression, Survival, Clustering, Shared)
+- 📁 **Source manuals:** [`docs/`](docs/) (Getting started, Classification, Regression, Survival, Clustering, About, For developers)
 - Preview locally:
 
 ```bash

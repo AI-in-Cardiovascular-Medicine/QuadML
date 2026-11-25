@@ -1,26 +1,22 @@
 # Survival Analysis — File selection
 
-**Where**: Survival Analysis → **File Selection**
-
 Load the dataset, map duration and event, set horizons, and choose the Output Directory. Nothing is written until **Start Procedure**.
 
 ![File Selection](../assets/sa/2.png)
-
-## What this step does
-
-Defines time-to-event roles and evaluation horizons for td-AUC, IBS, and calibration.
 
 ## Controls
 
 | Control | What it does | When to use it |
 |---------|--------------|----------------|
 | **Select File** / **Output Directory** | Main data + parent output folder | Always |
-| **External Test Data** | Second file with duration + event + same features | Hold-out; required if Train on all data is on |
+| **External Test Data** | Second file with duration, event and same features | Hold-out; mandatory if Train on all data is on |
 | **Duration Column** | Time to event or last follow-up | Always |
 | **Event / Censor Column** | Event vs censored | Always |
 | **Event Coding** | Which code means event observed | Match your file (often 1 = event) |
 | **Eval. Horizons** | Time points for td-AUC / IBS / calibration | Default **Auto from follow-up** |
 | **ID Column** / **Column Removal** | IDs / drop unused columns | As needed |
+
+![Duration, event, ID, and evaluation horizons](../assets/sa/4.png)
 
 | Horizons option | Meaning |
 |-----------------|---------|

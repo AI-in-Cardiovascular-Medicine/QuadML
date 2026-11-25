@@ -1,4 +1,3 @@
-Cleaning runs when you click **Start Procedure**, not when you change a card. If no method card is selected, that means **None** (baseline hygiene still runs).
 
 ## Methods
 
@@ -12,7 +11,3 @@ Cleaning runs when you click **Start Procedure**, not when you change a card. If
 | **Local Outlier Factor** | Drops outlier rows by local density | Local density anomalies |
 | **DBSCAN** (cleaning) | Drops outlier rows | Density-based row outliers |
 | **One-Class SVM** | Drops outlier rows | One-class boundary outliers |
-
-Feature-level methods turn outlier **cells** into missing values (filled later by Imputation). Sample-level methods drop whole **rows**.
-
-Optional on this page: **Exact Duplicate Rows**, **Missing / Outlier Threshold**, **Correlation Analysis** (supervised; Clustering uses FS → Correlation Thresholding instead).

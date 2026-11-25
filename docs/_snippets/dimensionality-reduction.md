@@ -1,4 +1,4 @@
-**Dimensionality Reduction** compresses features **after** Feature Selection. **None** leaves the selected columns unchanged. FS × DR combinations are searched together.
+
 
 ## Methods
 
@@ -9,5 +9,3 @@
 | **ICA** | Independent components | Separating mixed signals |
 | **Kernel PCA** | Nonlinear components | Nonlinear structure |
 | **LDA** | Supervised linear discriminants | **Classification only** |
-
-**Point:** Keep **None** unless you already know you want components. After DR, Interpretability refers to components, not original names.

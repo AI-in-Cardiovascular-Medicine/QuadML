@@ -1,17 +1,24 @@
 # Clustering — Scaling
 
-**Where**: Clustering → **Scaling**
-
-Rescales features before FS, DR, and clustering. Distance-based methods (**K-Means**, **DBSCAN**, …) usually need scaling.
+Rescales imputed feature values so every searched pipeline has comparable numeric inputs for feature selection, dimensionality reduction, and clustering. Distance-based algorithms (**K-Means**, **DBSCAN**, and similar) usually need scaling; **None** keeps values unchanged when you want an unscaled baseline. Scaling is applied at **Start Procedure**. Enable only what you need because each extra scaler multiplies the search.
 
 ![Scaling](../assets/cluster/12.png)
 
---8<-- "_snippets/scaling.md"
+## Methods
 
-**Task note:** Clustering omits **Quantile Transformer** and **Normalizer**. **None** (no scaling) is available.
+| Method | What it does | When to use it |
+|--------|--------------|----------------|
+| **None** | Leaves imputed values unchanged | Unscaled baseline |
+| **Standard Scaler** | Mean 0, variance 1 | Default first choice for distance-based clustering |
+| **Min-Max Scaler** | Scales to a fixed range | Bounded features |
+| **Robust Scaler** | Centers/scales with median and IQR | Outliers that survive cleaning |
+| **Max Absolute Scaler** | Scales by max absolute value | Sparse data; preserve zeros |
+| **Power Transformer** | Reduces skew / stabilizes variance | Skewed numeric features |
+
+![None and Standard Scaler selected](../assets/cluster/13.png)
 
 ## Common mistakes
 
-- Linear / SVM-style models with only **None** on mixed-scale features
+- Distance-based clustering with only **None** on mixed-scale features
 - Selecting every scaler on the first run
-- Forgetting **None** when you want a tree-model baseline
+- Expecting Quantile Transformer or Normalizer on this page (hidden in Clustering)

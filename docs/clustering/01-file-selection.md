@@ -1,14 +1,8 @@
 # Clustering — File selection
 
-**Where**: Clustering → **File Selection**
-
-Load the dataset and choose the Output Directory. Nothing is written until **Start Procedure** on Search Settings.
+Load the dataset and choose the Output Directory for unlabeled clustering. Nothing is written until **Start Procedure** on Search Settings. There is no External Test Data and no ID Column picker. An optional **Benchmark Label** can score ARI / NMI / FMI after clustering; it is **not** used for training or for ranking pipelines, leave **(None)** unless you intentionally want those reference metrics. Prefer mostly numeric features.
 
 ![File Selection](../assets/cluster/2.png)
-
-## What this step does
-
-Points QuadML at your `.csv` / `.xlsx` (mostly numeric features work best), optional Benchmark Label, and the **Output Directory** parent folder.
 
 ## Controls
 
@@ -20,7 +14,7 @@ Points QuadML at your `.csv` / `.xlsx` (mostly numeric features work best), opti
 | **Column Removal** | Drops listed columns at Start | IDs, text, unused columns |
 | **Data Description** / **Clear** | Summary / reset | As needed |
 
-**Task notes:** No External Test Data and no ID Column picker. Benchmark Label is **not** used for training or for ranking pipelines — leave **(None)** unless you intentionally want ARI / NMI / FMI.
+![Select File, Output Directory, Benchmark Label, and Column Removal](../assets/cluster/3.png)
 
 ## Common mistakes
 

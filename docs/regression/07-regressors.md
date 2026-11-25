@@ -2,11 +2,11 @@
 
 **Where**: Regression → **Regressors**
 
-Choose regression models to search. Each checked model is crossed with every Imputation × Scaling × FS × DR combination you enabled.
+Choose regression algorithms to search. Each selected model is crossed with every Imputation × Scaling × FS × DR combination you enabled.
 
 ![Regressors](../assets/reg/21.png)
 
-## Models
+## Regressors
 
 | Model | How it works | Short code |
 |-------|--------------|------------|
@@ -26,7 +26,7 @@ Choose regression models to search. Each checked model is crossed with every Imp
 | Multi-Layer Perceptron | Small neural network | MLP |
 | Stacking | Combines several models with a final model | Stk |
 
-**Tip:** For a first run, use **Linear Regression** and **Random Forest**. **Stacking** and **MLP** are much slower. Prefer scaling for linear models and SVR.
+**Point:** For a first run, use **Linear Regression** and **Random Forest**. **Stacking** and **MLP** are much slower. Prefer scaling for linear models and SVR.
 
 ## Common mistakes
 

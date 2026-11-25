@@ -8,6 +8,22 @@ Compare searched pipelines using Train / Test (or External) metrics. Prefer **Te
 
 --8<-- "_snippets/results-usage.md"
 
+Browse or confirm `Final_Results.csv` for the dated run folder, then filter pipelines and open details:
+
+![Results file and pipeline metrics](../assets/reg/30.png)
+
+**Compare All Pipelines (table)** ranks configurations (CV score for ranking; Test metrics for reference):
+
+![Compare All Pipelines table](../assets/reg/31.png)
+
+**Detailed Report** opens the full CSV-style metric view for a pipeline:
+
+![Detailed Report](../assets/reg/32.png)
+
+**Metric Explanations** in the app covers how to read Train vs Test cards and optional Bootstrap CIs:
+
+![Metric Explanations](../assets/reg/33.png)
+
 ## Error metrics (lower is better)
 
 | Metric | What it means | Better |

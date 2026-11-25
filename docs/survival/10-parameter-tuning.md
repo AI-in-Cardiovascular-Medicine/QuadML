@@ -1,18 +1,20 @@
 # Survival Analysis — Parameter tuning
 
-**Where**: Survival Analysis → **Parameter Tuning**
-
-Sets search budget and algorithm, then starts the run. No Imbalance Handling panel.
+Sets how QuadML searches the pipeline and model combinations you enabled earlier, then starts the run with **Start Procedure**. Choose a **Search Budget** (Fast / Balanced / Thorough), a search algorithm (Grid or Random Search), cross-validation folds, optional Bootstrap CIs, and CPU/RAM limits; review the selected configuration tree before you start. There is **no Imbalance Handling** panel in Survival. Cross-validation may include **Stratified K-Fold** (event-aware) when events are scarce. Evaluation horizons for td-AUC, IBS, and calibration are set on **File Selection**, not here. Prefer **Fast** for a first Survival run; use **Stop** to cancel and keep partial outputs in the dated run folder.
 
 ![Parameter Tuning](../assets/sa/30.png)
 
 --8<-- "_snippets/search-run.md"
 
+![Search Budget and search algorithm](../assets/sa/31.png)
+
+![CV (Stratified K-Fold), Bootstrap CIs, and Resource Usage](../assets/sa/32.png)
+
+Selected configuration tree and **Start** / **Stop** / **Reset** / **Export** / **Rebuild Results**:
+
+![Selected configuration and procedure actions](../assets/sa/33.png)
+
 --8<-- "_snippets/start-stop-resources.md"
-
-**Task notes:** CV may include **Stratified K-Fold** (event-aware) when events are scarce. Horizons for td-AUC / IBS / calibration are set on **File Selection**.
-
-**Tip:** Check the configuration tree before Start. Use **Fast** for a first Survival run.
 
 ## Common mistakes
 

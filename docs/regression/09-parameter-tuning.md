@@ -2,11 +2,19 @@
 
 **Where**: Regression → **Parameter Tuning**
 
-Sets search budget and algorithm, then starts the run. No Imbalance Handling or Stratified K-Fold.
+Sets search budget and algorithm, then starts the run. No Imbalance Handling or Stratified K-Fold for regression task.
 
 ![Parameter Tuning](../assets/reg/25.png)
 
 --8<-- "_snippets/search-run.md"
+
+![Search Budget and search algorithm](../assets/reg/26.png)
+
+![CV, Bootstrap CIs, and Resource Usage](../assets/reg/27.png)
+
+Selected configuration tree and **Start** / **Stop** / **Reset** / **Export** / **Rebuild Results**:
+
+![Selected configuration and procedure actions](../assets/reg/28.png)
 
 --8<-- "_snippets/start-stop-resources.md"
 

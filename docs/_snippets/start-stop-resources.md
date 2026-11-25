@@ -1,7 +1,7 @@
 ## Start Procedure — sequence
 
 1. **Guards:** not already running; input file exists; split rules OK (supervised); Output Directory set; data loaded from File Selection; survival horizon confirmations when required.
-2. Creates a **new dated run folder** under the Output Directory parent.
+2. Creates a **new folder** under the Output Directory parent.
 3. Collects GUI configuration (all checked stages and search settings).
 4. Starts **resource monitoring** (CPU/RAM sampling).
 5. Prepares data on the main path, then launches the search so **Stop** can cancel the process tree.

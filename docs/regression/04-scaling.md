@@ -2,7 +2,7 @@
 
 **Where**: Regression → **Scaling**
 
-Rescales features before Feature Selection, DR, and the regressor. Linear models and SVR usually need scaling; many trees work with **None**.
+Rescales features before Feature Selection and Dimensionality Reduction. Linear models and SVR usually need scaling; many trees work with **None**.
 
 ![Scaling](../assets/reg/13.png)
 

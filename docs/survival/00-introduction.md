@@ -1,8 +1,8 @@
 # Survival Analysis — Overview
 
-**Survival Analysis** models **time-to-event** data: each row has a **duration** (follow-up) and an **event / censor** indicator (event observed vs still event-free at last contact).
+**Survival Analysis** estimates **time-to-event** outcomes: each row has a **duration** (follow-up time) and an **event / censor** indicator (event observed vs still event-free at last contact).
 
-In QuadML you can run descriptive curves (Kaplan–Meier / Nelson–Aalen) and/or covariate pipelines (Cox, AFT, RSF, …), then review discrimination, calibration, plots, and explanations. Everything runs locally; no data is uploaded.
+In QuadML you configure and compare complete pipelines by cleaning, imputation, scaling, feature selection, dimensionality reduction, descriptive curves (Kaplan–Meier / Nelson–Aalen), and survival models (Cox, AFT, RSF, and related methods) and then evaluate them with discrimination and calibration metrics (C-index, td-AUC, IBS, Mean Cal, Slope, ICI), survival plots, and model explanations. Unlike Classification or Regression, you map **Duration** and **Event / Censor** columns and set evaluation horizons. All computation runs locally; no data is uploaded.
 
 ### Clinical examples
 
@@ -10,19 +10,9 @@ In QuadML you can run descriptive curves (Kaplan–Meier / Nelson–Aalen) and/o
 - Time to restenosis after stenting  
 - Time to device failure with right censoring  
 
-Use Survival for duration + event. For discrete labels use Classification; for a continuous outcome use Regression; for unlabeled grouping use Clustering.
+**Attention**: Use Survival for duration and event. For discrete labels use Classification; for a continuous outcome use Regression; for unlabeled grouping use Clustering.
 
 ![Survival Analysis in the left navigation](../assets/sa/0.png)
 
-Settings live under **Pipeline**. First run: [Tutorial](walkthrough.md).
+Settings for each step live under **Pipeline**. For a click-through first run, open the [Tutorial](walkthrough.md).
 
-### Suggested first configuration
-
-| Step | Choice |
-|------|--------|
-| Cleaning | **None** |
-| Imputation / Scaling / FS / DR | Simple Imputation, Standard Scaler, **None**, **None** |
-| Descriptive | **Kaplan-Meier** |
-| Models | **Cox Proportional Hazards** |
-| Split | 80/20, Train on all data **off** |
-| Search | **Fast** → **Start Procedure** |

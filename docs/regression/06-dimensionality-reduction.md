@@ -8,6 +8,10 @@ Compresses features after Feature Selection. **LDA is not available** (Classific
 
 --8<-- "_snippets/dimensionality-reduction.md"
 
+Choose methods and set options. For example PCA component count or explained variance, and the Kernel PCA kernel:
+
+![Dimensionality Reduction algorithms](../assets/reg/20.png)
+
 ## Common mistakes
 
 - Looking for **LDA** outside Classification

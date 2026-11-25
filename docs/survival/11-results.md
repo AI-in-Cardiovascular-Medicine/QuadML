@@ -1,12 +1,22 @@
 # Survival Analysis — Metrics
 
-**Where**: Survival Analysis → **Results**
-
-Compare searched pipelines using Train / Test (or External) metrics. Prefer **Test** or **External**.
+Shows discrimination and calibration scores for every searched pipeline after **Start Procedure** (or **Rebuild Results**). Load `Final_Results.csv` from the output run folder, then filter by cleaning, imputation, scaling, feature selection, dimensionality reduction, and survival model to open Train / Test (or External) cards. You see ranking-oriented discrimination metrics (**C-index**, **td-AUC**, Integrated AUC when reported) and absolute-risk calibration / error metrics (**IBS**, **Mean Calibration**, **Calibration Slope**, **ICI**). Descriptive rows (Kaplan–Meier / Nelson–Aalen) appear with preprocess as `N/A` and may include cohort-comparison p-values for Train vs Test balance. Prefer held-out **Test** or **External** scores when choosing a model; when absolute risk matters, check calibration first, then C-index / td-AUC among well-calibrated pipelines—do not rank by C-index alone. Open **Metric Explanations** in the app for full definitions.
 
 ![Results](../assets/sa/34.png)
 
 --8<-- "_snippets/results-usage.md"
+
+Browse or confirm `Final_Results.csv` for the output run folder, then filter pipelines and open Train / Test / External metrics:
+
+![Results file and pipeline metrics](../assets/sa/35.png)
+
+**Compare All Pipelines (table)** ranks configurations by CV Harrell C-index (Test metrics are for reference):
+
+![Compare All Pipelines table](../assets/sa/36.png)
+
+**Detailed Report** opens the full CSV-style metric view (including descriptive KM rows when present):
+
+![Detailed Report](../assets/sa/37.png)
 
 ## Discrimination (higher is better)
 

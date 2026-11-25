@@ -10,6 +10,10 @@ Chooses Train/Test (and optional External-only evaluation).
 
 **Regression note:** Splits are **not** stratified by class — the outcome is continuous.
 
+When **Train on all data** is checked, Train is 100% of the main file and a labeled **External** file is required for evaluation:
+
+![Train on all data (External only)](../assets/reg/24.png)
+
 ## Common mistakes
 
 - Checking **Train on all data** without External — **Start Procedure** will refuse

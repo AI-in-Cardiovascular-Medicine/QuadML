@@ -22,10 +22,17 @@ Points QuadML at your `.csv` / `.xlsx`, the numeric **Target** (Label Column in 
 | **Column Removal** | Drops listed columns at Start | IDs, text, unused columns |
 | **Data Description** / **Clear** | Summary / reset | As needed |
 
-**Task note:** No Task Type or Decision Threshold in Regression.
+![File Selection controls](../assets/reg/3.png)
+
+## Points
+
+- Prefer a writable Output Directory you own (not Program Files).
+- External files must match feature and target column names.
+- The Target must be numeric — categorical outcomes belong in Classification.
 
 ## Common mistakes
 
 - Starting without an Output Directory  
 - Using a class/categorical column as the target (use Classification)  
 - External file with different column names  
+- Leaving ID columns in as features  

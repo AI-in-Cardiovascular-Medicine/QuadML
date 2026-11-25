@@ -1,10 +1,6 @@
 # Survival Analysis — Scaling
 
-**Where**: Survival Analysis → **Scaling**
-
-Rescales features for covariate models. Cox / AFT often need scaling; some tree ensembles can use **None**.
-
-**Task note:** KM / Nelson–Aalen do not use scaling (`N/A`).
+Rescales imputed feature values so every searched **covariate** pipeline has comparable numeric inputs for feature selection, dimensionality reduction, and survival models. Choose one or more scalers (Standard, Min-Max, Robust, Max Absolute, Power, Quantile, Normalizer) or **None** to leave values unchanged. Cox and AFT models usually need scaling; tree ensembles such as Random Survival Forest can often use **None**. Scaling is applied at **Start Procedure**. Enable only what you need because each extra scaler multiplies the search. Kaplan–Meier and Nelson–Aalen do not use scaling (`N/A` on Results).
 
 ![Scaling](../assets/sa/16.png)
 

@@ -4,8 +4,6 @@
 2. **Search algorithm:** **Grid Search** or **Random Search** when shown (Random Search exposes **Iterations**).
 3. **Cross-validation** method and splits when the mode uses CV (Clustering omits CV fold controls on Search Settings).
 
-For a first run, **Fast** or **Balanced** is enough.
-
 ---
 
 ## Bootstrap CIs and resources

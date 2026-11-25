@@ -1,10 +1,6 @@
 # Survival Analysis — Models
 
-**Where**: Survival Analysis → **Survival Models**
-
-Covariate (predictive) models that use features plus duration/event. Kaplan–Meier and Nelson–Aalen are on **Descriptive Analysis**, not here.
-
-Each checked model is crossed with every Imputation × Scaling × FS × DR combination you enabled.
+Chooses survival algorithms that map features, duration, and event status to predicted risk or survival. Each selected model is trained and evaluated in the search and is crossed with every Imputation × Scaling × Feature Selection × Dimensionality Reduction combination you enabled, so the total number of pipelines is a product of those choices. Non-parametric cohort curves (Kaplan–Meier, Nelson–Aalen) live on **Descriptive Analysis**, not on this page. Enable only what you need because each extra model multiplies the search and some ensembles can write large `.pkl` files.
 
 ![Survival Models](../assets/sa/26.png)
 
@@ -22,7 +18,7 @@ Each checked model is crossed with every Imputation × Scaling × FS × DR combi
 | Survival Support Vector Machine | Ranking-oriented SVM (no \(S(t)\)) | SSVM |
 | DeepSurv | Neural Cox-style model | DeepSurv |
 
-**Tip:** First run: **Cox Proportional Hazards** (+ **Kaplan-Meier** on Descriptive). **RSF / EST / SGBM / SSVM** can write very large `.pkl` files. **DeepSurv** is slower.
+**Point:** Consider that **RSF / EST / SGBM / SSVM** models can write very large `.pkl` files.
 
 ## Common mistakes
 

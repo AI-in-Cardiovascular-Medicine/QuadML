@@ -1,14 +1,14 @@
 # Survival Analysis — Tutorial
 
-End-to-end click path for a first Survival run. Keep the search small.
+A short end-to-end click path for a first Survival Analysis run: load duration and event data, keep preprocess light, enable Kaplan–Meier plus Cox, run a small search, then read Metrics, Visualization, and Interpretability. Keep the search small so the first run finishes quickly. For method details and full option tables, use the Pipeline and Results pages.
 
 ---
 
 ## 1. Start
 
-1. Open QuadML → **Survival Analysis** → **File Selection**.
-2. **Select File → Browse** — `.csv` / `.xlsx` with duration, event, and features.
-3. **Output Directory → Browse** — writable parent folder.
+1. Open QuadML and select **Survival Analysis** from left paned and click on **File Selection**.
+2. Click on **Browse** in Select File and upload a `.csv` or `.xlsx` file with duration, event, and features.
+3. Click on **Browse** in Output Directory and select a path for output results and files.
 4. Set **Duration Column** and **Event / Censor Column** (or **Auto-Detect**).
 5. Set **Event Coding** so **1 = event observed** unless your file differs.
 6. Leave **Eval. Horizons** on **Auto from follow-up**.
@@ -20,28 +20,22 @@ End-to-end click path for a first Survival run. Keep the search small.
 
 ## 2. Preprocess
 
-| Step | Choice |
-|------|--------|
-| Data Cleaning | **None** |
-| Imputation | **Simple Imputation** |
-| Scaling | **Standard Scaler** |
-| Feature Selection | **None** |
-| Dimensionality Reduction | **None** |
+Select preferred methods for preprocessing from Cleaning to Feature Selection.
 
 ---
 
 ## 3. Models and split
 
-1. **Descriptive Analysis:** **Kaplan-Meier**.
-2. **Survival Models:** **Cox Proportional Hazards** only.
+1. **Descriptive Analysis:** **Kaplan-Meier** and **Nelson-Aalen**.
+2. **Survival Models: Select preferred ones.
 3. **Data Splitting:** 80/20, Train on all data **off**.
 
 ---
 
 ## 4. Run
 
-1. **Parameter Tuning:** Random Search, **Fast**, CPU/RAM 50/50.
-2. Review the tree → **Start Procedure** → wait (or **Stop** to cancel).
+1. **Parameter Tuning:** Random Search or Grid Search, **Fast**, CPU/RAM 50/50.
+2. Review the tree: **Start Procedure** and wait (or **Stop** to cancel).
 
 ---
 
@@ -51,4 +45,4 @@ End-to-end click path for a first Survival run. Keep the search small.
 2. **Visualization:** KM curve; Risk Group KM / Calibration for Cox.
 3. **Interpretability:** Load the Cox pipeline; try coefficients or SurvSHAP.
 
-Success: `Final_Results.csv` under `Your Folder\YYYY-MM-DD_HH-MM-SS\`.
+**Success**: Final_Results.csv  under `Your Folder\YYYY-MM-DD_HH-MM-SS\`.

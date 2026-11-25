@@ -1,14 +1,10 @@
 # Survival Analysis — Data splitting
 
-**Where**: Survival Analysis → **Data Splitting**
-
-Chooses Train/Test (and optional External-only evaluation). The outcome is duration + event, not a single label.
+Chooses how the main dataset is divided into **Train** and **Test** (and whether **External** is the only hold-out) before Parameter Tuning and scoring. The survival outcome is **duration + event**, not a single class label, so splits are not stratified by class. The default is an internal **80% / 20%** Train/Test split. When **Train on all data (evaluate on External only)** is checked, there is no internal Test split—External becomes the only unseen set and a compatible External file with duration and event columns is required on File Selection. Cross-validation during Parameter Tuning uses folds inside Train. Check cohort-comparison p-values on Results when comparing Train and Test.
 
 ![Data Splitting](../assets/sa/28.png)
 
 --8<-- "_snippets/data-splitting.md"
-
-**Survival note:** Check cohort-comparison p-values on Results when comparing Train and Test.
 
 ## Common mistakes
 

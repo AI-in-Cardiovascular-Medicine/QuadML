@@ -1,8 +1,6 @@
 # Regression — File selection
 
-**Where**: Regression → **File Selection**
-
-Load the dataset, set the numeric outcome, and choose where run outputs will be saved. Nothing is written to disk until **Start Procedure**.
+This step is for loading your dataset, choosing the **Output Directory** where QuadML saves run results, and setting the numeric outcome (**Label Column** in the app) plus optional ID Column, External Test Data, and Column Removal.
 
 ![File Selection](../assets/reg/2.png)
 

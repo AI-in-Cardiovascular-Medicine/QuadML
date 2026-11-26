@@ -17,8 +17,8 @@ Hamed Mirzakhani, Giovanni Baj, Pooya Mohammadi Kazaj, Chaimae Bahou, Ali Hashem
 ```bibtex
 @article{quadml2026,
   title   = {QuadML: A General-Purpose, Open-Source Executable Machine Learning Framework for Supervised and Unsupervised Learning},
-  author  = {Mirzakhani, Hamed and Baj, Giovanni and Mohammadi Kazaj, Pooya and
-             Bahou, Chaimae and Hashemi Gheinani, Ali and Gr{\"a}ni, Christoph and Shiri, Isaac},
+  author  = {Mirzakhani Hamed, and Baj Giovanni, and Mohammadi Kazaj Pooya, and
+             Bahou Chaimae, and Hashemi Gheinani Ali, and Gr{\"a}ni Christoph, and Shiri Isaac},
   year    = {2026},
   note    = {}
 }

@@ -1,6 +1,6 @@
 # Clustering — File selection
 
-Load the dataset and choose the Output Directory for unlabeled clustering. Nothing is written until **Start Procedure** on Search Settings. There is no External Test Data and no ID Column picker. An optional **Benchmark Label** can score ARI / NMI / FMI after clustering; it is **not** used for training or for ranking pipelines, leave **(None)** unless you intentionally want those reference metrics. Prefer mostly numeric features.
+This step is for loading your unlabeled dataset and choosing the **Output Directory** where QuadML saves run results, plus optional Column Removal and **Benchmark Label**. There is no External Test Data and no ID Column picker. **Benchmark Label** can score ARI / NMI / FMI after clustering; it is **not** used for training or for ranking pipelines, leave **(None)** unless you want those reference metrics. Prefer mostly numeric features.
 
 ![File Selection](../assets/cluster/2.png)
 

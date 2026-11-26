@@ -1,6 +1,6 @@
 # Clustering — Scaling
 
-Rescales imputed feature values so every searched pipeline has comparable numeric inputs for feature selection, dimensionality reduction, and clustering. Distance-based algorithms (**K-Means**, **DBSCAN**, and similar) usually need scaling; **None** keeps values unchanged when you want an unscaled baseline. Scaling is applied at **Start Procedure**. Enable only what you need because each extra scaler multiplies the search.
+Scaling puts features on comparable ranges, so that features with large values (e.g. cholesterol in mg/dL) don't outweigh features with small ones (e.g. creatinine in mg/dL). Distance-based algorithms (**K-Means**, **DBSCAN**, **OPTICS**, **Spectral Clustering**, and similar) usually need it; **None** leaves values unchanged. It is fit on the prepared clustering data (there is no Train/Test split). Clustering omits **Quantile Transformer** and **Normalizer**. Enable only what you need because each extra scaler multiplies the search.
 
 ![Scaling](../assets/cluster/12.png)
 
@@ -8,14 +8,12 @@ Rescales imputed feature values so every searched pipeline has comparable numeri
 
 | Method | What it does | When to use it |
 |--------|--------------|----------------|
-| **None** | Leaves imputed values unchanged | Unscaled baseline |
-| **Standard Scaler** | Mean 0, variance 1 | Default first choice for distance-based clustering |
-| **Min-Max Scaler** | Scales to a fixed range | Bounded features |
-| **Robust Scaler** | Centers/scales with median and IQR | Outliers that survive cleaning |
-| **Max Absolute Scaler** | Scales by max absolute value | Sparse data; preserve zeros |
-| **Power Transformer** | Reduces skew / stabilizes variance | Skewed numeric features |
-
-![None and Standard Scaler selected](../assets/cluster/13.png)
+| **None** | No scaling is applied: leaves all values unchanged | Features are on the same scale |
+| **Standard Scaler** | Subtracts the mean and divides by the standard deviation (mean 0, variance 1) | Default choice for distance-based clustering |
+| **Min-Max Scaler** | Rescales each feature to a fixed range (0 to 1 by default) | Features with known bounds |
+| **Robust Scaler** | Subtracts the median and divides by the interquartile range | Features with outliers |
+| **Max Absolute Scaler** | Divides each feature by its maximum absolute value (range −1 to 1), keeping zeros at zero | Data with many zeros (sparse data) |
+| **Power Transformer** | Applies a power transformation (Yeo-Johnson by default) to make each feature more Gaussian | Skewed features |
 
 ## Common mistakes
 

@@ -1,7 +1,7 @@
 ## How to use the Results screen
 
 1. Open **Results** after **Start Procedure** finishes (or after **Rebuild Results**). Confirm Final_Results.csv file in the output folder, or **Browse** another folder that contains that CSV file and upload that.
-2. Read pipeline cards / rows (**Train** vs **Test**, or **External**, or unsupervised metrics — depending on mode).
+2. Read pipeline cards / rows (**Train** vs **Test**, or **External**, or unsupervised metrics depending on mode).
 3. Click **Metric Explanations** for the full in-app metric text.
 4. Use Compare / Detailed Report / Show Selected (and filters) as labeled.
 

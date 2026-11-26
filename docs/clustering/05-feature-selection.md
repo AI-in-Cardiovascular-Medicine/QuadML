@@ -1,28 +1,31 @@
 # Clustering — Feature selection
 
-Chooses which **original** feature columns to keep by unsupervised filtering or agglomeration or keeps all of them (**None**). Unlike Dimensionality Reduction, it does not create new components; each selected method is crossed with DR in the search (FS × DR). Clustering shows unsupervised selectors only. Prefer **None** when the feature count is small; enable only what you need because each extra method multiplies the search.
+Feature selection keeps the most useful original features and drops the rest. Unlike Dimensionality reduction, it doesn't create new features, so the selected ones stay interpretable. Each selected method is combined with each Dimensionality reduction method in the search, so the number of runs grows quickly. Clustering shows unsupervised selectors only (no label-based methods). Feature selection is fit on the prepared clustering data (there is no Train/Test split). For most methods, the main parameter can be set in the method's settings, for example a correlation threshold, number of feature clusters, or Laplacian *k*.
 
 ![Feature Selection](../assets/cluster/15.png)
 
 ## Methods
 
-| Method | Group | What it does | When to use it |
-|--------|-------|--------------|----------------|
-| **None** | General | Keeps every eligible feature | Small or medium feature counts; full-feature baseline |
-| **Variance Threshold** | General | Drops near-constant features | Low-information columns |
-| **Correlation Thresholding** | General | Drops highly correlated features above a threshold | Redundant feature pairs |
-| **Feature Agglomeration** | General | Groups similar features into a smaller set | Wide data; cluster features, not rows |
-| **Laplacian Score** | Specialized | Ranks features by neighbourhood structure (DBSCAN / OPTICS / Spectral) | Density / spectral pipelines; forces DR to **None** |
+| Method | What it does | When to use it |
+|--------|--------------|----------------|
+| **None** | Keeps every feature as-is | Small feature counts; full-feature baseline |
+| **Variance Threshold** | Drops features that barely change across samples | Near-constant columns |
+| **Correlation Thresholding** | Drops one feature from each highly correlated pair above a threshold | Redundant feature pairs |
+| **Feature Agglomeration** | Groups similar features into a smaller set | Wide data; cluster features, not rows |
+| **Laplacian Score** | Ranks features by neighbourhood structure (best with DBSCAN / OPTICS / Spectral) | Density / spectral pipelines; forces DR to **None** |
 
 General methods work with all clustering models; **Laplacian Score** is specialized for DBSCAN / OPTICS / Spectral:
 
 ![Feature Selection method groups](../assets/cluster/16.png)
 
-Per-method settings (for example Correlation **Threshold**, Feature Agglomeration **Num of Clusters**, Laplacian **k**) and **Unselect All**:
-
 ![Feature Selection parameters](../assets/cluster/17.png)
 
 If **Laplacian Score** is selected, Dimensionality Reduction must be **None**.
+
+## Tips
+
+- Keep **None** enabled if you want a full-feature baseline to compare against
+- Set thresholds and *k*-style options in each method's settings before you start
 
 ## Common mistakes
 

@@ -1,8 +1,6 @@
 # Regression — Imputation
 
-**Where**: Regression → **Imputation**
-
-Fills missing feature values so every searched pipeline has complete inputs for scaling and modeling.
+Imputation fills in missing values, including those created by Data cleaning, so that every model receives a complete dataset. It is fit on the training data only and then applied to Test (and External) data, so fill values are not taken from the held-out sets. Enable only what you need because each extra imputer multiplies the search.
 
 ![Imputation](../assets/reg/10.png)
 
@@ -14,6 +12,5 @@ Fills missing feature values so every searched pipeline has complete inputs for 
 
 ## Common mistakes
 
-- Checking every imputer with every scaler and model (product explosion)
-- Assuming **mean** is the Simple Imputation default — QuadML default is **median**
-- Feature-level cleaning without any imputer for the NaNs it creates
+- Assuming **mean** is the Simple Imputation default while QuadML default is **median**
+- Feature-level cleaning without any imputer for the missing values it creates

@@ -1,25 +1,21 @@
 # Regression — Feature selection
 
-**Where**: Regression → **Feature Selection**
-
-Ranks or drops original predictors against the numeric target. Crossed with DR (FS × DR).
+Feature selection keeps the most useful original features and drops the rest. Unlike Dimensionality reduction, it doesn't create new features, so the selected ones stay interpretable. Each selected method is combined with each Dimensionality reduction method in the search, so the number of runs grows quickly. Feature selection is fit on the training data only (within each cross-validation fold) and then applied to Test and External data. For most methods, the main parameter can be set in the method's settings, for example the number of features to keep or the percentile.
 
 ![Feature Selection](../assets/reg/15.png)
 
---8<-- "_snippets/feature-selection.md"
-
-**Regression note:** Supervised / filter selectors target the continuous outcome. PCA belongs on Dimensionality Reduction.
-
-Method cards and per-method settings (for example *k*, percentile, or max features):
+--8<-- "_snippets/feature-selection-regression.md"
 
 ![Feature Selection algorithms](../assets/reg/16.png)
 
-**Unselect All** and the in-app warning about slow Sequential Forward/Backward search:
+## Tips
 
-![Feature Selection Unselect All and SFS/SBS note](../assets/reg/17.png)
+- Keep **None** enabled if you want a full-feature baseline to compare against
+- Sequential Forward/Backward are safe when the feature count is already small
+- Set *k*, percentile, or max features in each method's settings before you start
 
 ## Common mistakes
 
 - Turning off **None** when you still want a full-feature baseline
-- Enabling SFS/SBS with a large feature budget on a smoke run
+- Enabling Sequential Forward/Backward with a large feature budget on a first run
 - Confusing this step with PCA (that is Dimensionality Reduction)

@@ -17,6 +17,17 @@
   background-color: #1591DC;
 }
 
+/* Brand logo already includes the wordmark — hide duplicate site title */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 2rem;
+  width: auto;
+}
+
+.md-header__topic {
+  display: none;
+}
+
 .md-typeset {
   font-size: 14px;
   line-height: 1.6;

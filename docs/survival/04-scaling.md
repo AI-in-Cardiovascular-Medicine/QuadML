@@ -1,6 +1,6 @@
 # Survival Analysis — Scaling
 
-Rescales imputed feature values so every searched **covariate** pipeline has comparable numeric inputs for feature selection, dimensionality reduction, and survival models. Choose one or more scalers (Standard, Min-Max, Robust, Max Absolute, Power, Quantile, Normalizer) or **None** to leave values unchanged. Cox and AFT models usually need scaling; tree ensembles such as Random Survival Forest can often use **None**. Scaling is applied at **Start Procedure**. Enable only what you need because each extra scaler multiplies the search. Kaplan–Meier and Nelson–Aalen do not use scaling (`N/A` on Results).
+Scaling puts features on comparable ranges, so that features with large values (e.g. cholesterol in mg/dL) don't outweigh features with small ones (e.g. creatinine in mg/dL). Models based on distances or coefficients (Cox, AFT, Survival SVM) usually need it; tree-based models (Random Survival Forest, Extra Survival Trees, Survival Gradient Boosting) work fine without it. It is fit on the training data only and then applied to Test (and External) data, so scale factors are not taken from the held-out sets. Enable only what you need because each extra scaler multiplies the search. Kaplan–Meier and Nelson–Aalen do not use scaling (`N/A` on Results).
 
 ![Scaling](../assets/sa/16.png)
 

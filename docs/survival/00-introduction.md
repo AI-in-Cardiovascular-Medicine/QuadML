@@ -14,5 +14,5 @@ In QuadML you configure and compare complete pipelines by cleaning, imputation, 
 
 ![Survival Analysis in the left navigation](../assets/sa/0.png)
 
-Settings for each step live under **Pipeline**. For a click-through first run, open the [Tutorial](walkthrough.md).
+Settings for each step live under **Pipeline**.
 

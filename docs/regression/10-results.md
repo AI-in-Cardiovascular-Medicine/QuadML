@@ -1,28 +1,22 @@
 # Regression — Metrics
 
-**Where**: Regression → **Results**
-
-Compare searched pipelines using Train / Test (or External) metrics. Prefer **Test** or **External**.
+Shows Train / Test (or External) scores for every searched pipeline after **Start Procedure** (or **Rebuild Results**). Load `Final_Results.csv` from the output run folder, then filter by cleaning, imputation, scaling, feature selection, dimensionality reduction, and regression model to open the metric cards. You see error metrics in target units (**MAE**, **MedAE**, **RMSE**, **MSE**, **MAPE** / **sMAPE**, **Max Error**) and fit / agreement metrics (**R²**, **Adjusted R²**, **Explained Variance**, **Pearson** / **Spearman**, **CCC**, **Mean Residual**). Prefer held-out **Test** or **External** scores when choosing a model; check error in target units first, then R² / correlation among pipelines with acceptable error—do not rank by R² alone when residuals or bias matter. Open **Metric Explanations** in the app for full definitions.
 
 ![Results](../assets/reg/29.png)
 
 --8<-- "_snippets/results-usage.md"
 
-Browse or confirm `Final_Results.csv` for the dated run folder, then filter pipelines and open details:
+Browse or confirm `Final_Results.csv` for the output run folder, then filter pipelines and open Train / Test / External metrics:
 
 ![Results file and pipeline metrics](../assets/reg/30.png)
 
-**Compare All Pipelines (table)** ranks configurations (CV score for ranking; Test metrics for reference):
+**Compare All Pipelines (table)** ranks configurations by CV score (Test metrics are for reference):
 
 ![Compare All Pipelines table](../assets/reg/31.png)
 
 **Detailed Report** opens the full CSV-style metric view for a pipeline:
 
 ![Detailed Report](../assets/reg/32.png)
-
-**Metric Explanations** in the app covers how to read Train vs Test cards and optional Bootstrap CIs:
-
-![Metric Explanations](../assets/reg/33.png)
 
 ## Error metrics (lower is better)
 
@@ -46,7 +40,7 @@ Browse or confirm `Final_Results.csv` for the dated run folder, then filter pipe
 | CCC | Concordance correlation (agreement + calibration) | Higher |
 | Mean Residual (Bias) | Average signed error | Near **zero** |
 
-Open **Metric Explanations** in the app for full definitions. Large Train vs Test gaps often mean overfitting.
+Prefer held-out **Test** / **External** scores; large Train vs Test gaps often mean overfitting. When prediction error in target units matters, check MAE / RMSE / MedAE first, then R² / CCC among acceptable rows. Open **Metric Explanations** in the app for full definitions.
 
 ## Common mistakes
 

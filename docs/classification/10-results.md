@@ -1,20 +1,26 @@
 # Classification — Metrics
 
-**Where**: Classification → **Results**
-
-Compare searched pipelines using Train / Test (or External) metrics. Prefer **Test** or **External** when choosing a model.
+Shows Train / Test (or External) scores for every searched pipeline after **Start Procedure** (or **Rebuild Results**). Load `Final_Results.csv` from the output run folder, then filter by cleaning, imputation, scaling, feature selection, dimensionality reduction, and classifier. You see metrics that use the predicted class (**Accuracy**, **Balanced Accuracy**, **Sensitivity**, **Specificity**, **Precision**, **NPV**, **F1**, **MCC**, **Cohen's kappa**) and metrics that use predicted probabilities (**ROC-AUC**, **PR-AUC**, **Brier**, **Log loss**, **ECE**). For two-class problems, the Decision Threshold from Parameter Tuning turns probabilities into a class before those first metrics are scored; multi-class picks the class with the highest probability. Prefer held-out **Test** or **External** scores when choosing a model; check ranking quality (ROC-AUC / PR-AUC) together with how the model behaves at your threshold—do not pick by Accuracy alone when classes are imbalanced. Open **Metric Explanations** in the app for full definitions.
 
 ![Results](../assets/class/Class41.png)
 
 --8<-- "_snippets/results-usage.md"
 
-Browse or confirm `Final_Results.csv` for the output run folder, then filter pipelines and open details:
+Browse or confirm `Final_Results.csv` for the output run folder, then filter pipelines and open Train / Test / External metrics:
 
 ![Results file and pipeline filters](../assets/class/Class42.png)
 
-## Metrics that use the decision threshold
+**Compare All Pipelines (table)** ranks configurations by CV score (Test metrics are for reference):
 
-These compare predicted classes with the true classes (binary threshold or multi-class argmax).
+![Compare All Pipelines table](../assets/class/Class44.png)
+
+**Detailed Report** opens the full CSV-style metric view for a pipeline:
+
+![Detailed Report](../assets/class/Class45.png)
+
+## Metrics that use the predicted class
+
+These compare the class the model predicts with the true class. For two-class problems they use the Decision Threshold; for multi-class they use the class with the highest probability.
 
 | Metric | What it means | Better |
 |--------|---------------|--------|
@@ -30,7 +36,7 @@ These compare predicted classes with the true classes (binary threshold or multi
 
 ## Metrics that use predicted probabilities
 
-These do not depend on the decision threshold.
+These do not depend on the Decision Threshold.
 
 | Metric | What it means | Better |
 |--------|---------------|--------|
@@ -40,7 +46,7 @@ These do not depend on the decision threshold.
 | Log loss | Penalizes confident wrong predictions | Lower |
 | ECE | Calibration error: predicted probabilities vs observed frequencies | Lower |
 
-Open **Metric Explanations** in the app for full definitions. Large Train vs Test gaps often mean overfitting.
+Prefer held-out **Test** / **External** scores; large Train vs Test gaps often mean overfitting. On imbalanced data, prefer Balanced Accuracy / MCC / PR-AUC over Accuracy alone. Open **Metric Explanations** in the app for full definitions.
 
 ## Common mistakes
 

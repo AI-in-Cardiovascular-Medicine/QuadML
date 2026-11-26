@@ -1,23 +1,16 @@
 # Classification — Imputation
 
-**Where**: Classification → **Imputation**
-
-Fills missing feature values (including cells cleared by feature-level cleaning) so every searched pipeline has complete inputs.
+Imputation fills in missing values, including those created by Data cleaning, so that every model receives a complete dataset. It fits on the training data only and then applied to Test (and External) data, so fill values are not taken from the held-out sets. Enable only what you need because each extra imputer multiplies the search.
 
 ![Imputation](../assets/class/Class18.png)
 
 --8<-- "_snippets/imputation.md"
 
-Expand a method for options (for example Simple Imputation strategy):
+**More Configs…** on Simple Imputation opens the strategy options:
 
 ![Simple Imputation configuration](../assets/class/Class19.png)
 
-Use **Select All** / **Unselect All** and the toggles carefully — every checked imputer multiplies the search:
-
-![Imputation method toggles](../assets/class/Class20.png)
-
 ## Common mistakes
 
-- Checking every imputer with every scaler and model (product explosion)
-- Assuming **mean** is the Simple Imputation default — QuadML default is **median**
-- Feature-level cleaning without any imputer for the NaNs it creates
+- Assuming **mean** is the Simple Imputation default while QuadML default is **median**
+- Feature-level cleaning without any imputer for the missing values it creates

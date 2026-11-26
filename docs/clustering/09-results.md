@@ -43,7 +43,7 @@ Browse or confirm `Final_Results.csv` for the output run folder, then filter pip
 |--------|---------------|--------|
 | ARI / NMI / FMI | Agreement with **Benchmark Label** | Higher |
 
-Density models: use **DISCO** plus sizes / noise—not DBCV alone. Size balance, noise fraction, and cluster counts matter when comparing paradigms.
+Density models: use **DISCO** plus sizes / noise, not DBCV alone. Size balance, noise fraction, and cluster counts matter when comparing paradigms.
 
 ## Common mistakes
 

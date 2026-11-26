@@ -1,18 +1,28 @@
 # Classification — Data splitting
 
-**Where**: Classification → **Data Splitting**
-
-Chooses how the main dataset is divided into Train and Test (and whether External is the only hold-out).
+Data splitting divides the dataset into a training set, used to build and tune the models, and a test set, kept aside to evaluate them on unseen data. Cross-validation during Parameter tuning uses only the training set, so test results are not influenced by the model choice. In classification, the split is stratified, so both sets keep the same proportion of each class. When an external test set is provided, the internal test set can be set to zero: all data is then used for tuning and training, and the models are evaluated only on the external set.
 
 ![Data Splitting](../assets/class/Class31.png)
 
---8<-- "_snippets/data-splitting.md"
+## Settings
 
-**Classification note:** Splits may be **stratified** by class labels so Train and Test keep similar class mix.
-
-When **Train on all data** is checked, Train is 100% of the main file and a labeled **External** file is required for evaluation:
+| Setting | What it does |
+|---------|--------------|
+| **Train / Test %** | Share of the main file used for Train vs Test (default **80% / 20%**) |
+| **External Test Data** | Optional second labeled file set on File Selection; scored as an extra hold-out when present |
+| **Train on all data (evaluate on External only)** | Uses 100% of the main file for Train; requires External and removes the internal Test split |
 
 ![Train on all data (External only)](../assets/class/Class32.png)
+
+## Evaluation designs
+
+| Design | What happens |
+|--------|----------------|
+| **Train / Test** (default) | Internal 80/20 (or your %) split; no External file |
+| **Train / Test + External** | Internal Train/Test plus External scored as a third set |
+| **Train on all data + External** | No internal Test; External is the only evaluation set |
+
+**Start Procedure** rejects invalid setups (for example Train on all without a usable External file).
 
 ## Common mistakes
 

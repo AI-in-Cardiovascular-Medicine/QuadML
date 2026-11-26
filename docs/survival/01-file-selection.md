@@ -1,6 +1,6 @@
 # Survival Analysis — File selection
 
-Load the dataset, map duration and event, set horizons, and choose the Output Directory. Nothing is written until **Start Procedure**.
+This step is for loading your dataset, choosing the **Output Directory** where QuadML saves run results, and mapping the **Duration** and **Event / Censor** columns (plus evaluation horizons and optional ID, External Test Data, and Column Removal).
 
 ![File Selection](../assets/sa/2.png)
 

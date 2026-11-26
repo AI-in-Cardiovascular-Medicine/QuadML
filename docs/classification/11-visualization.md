@@ -1,32 +1,56 @@
 # Classification — Visualization
 
-**Where**: Classification → **Visualization**
-
-Charts for comparing pipelines and inspecting one selected pipeline. Load `Final_Results.csv` in **Results** first.
+Shows charts for the pipelines you already scored on **Results**, ranking (ROC / PR), confusion, calibration, and decision curves. Load `Final_Results.csv` in **Results** first, then open **Visualization** and choose **Single Pipeline** (one configuration’s curves), **Pipelines Comparison** (metrics / ROC / heatmaps across combinations), or **Plot Analyzer**. Prefer **Test** or **External** when judging generalization. You can plot confusion matrices, ROC / PR curves, class and probability distributions, cumulative gains / lift, calibration curves, and decision curves; PR, gains / lift, and decision curves are binary-only. Use **Plot Explanations** and **Analyze** for in-app help.
 
 ![Visualization](../assets/class/Class46.png)
 
 --8<-- "_snippets/visualization-usage.md"
 
-Choose **Single Pipeline** or **Pipelines Comparison**, pick a pipeline, and set **Results to display** (prefer **Test** or **External**):
+Choose **Single Pipeline**, **Pipelines Comparison**, or **Plot Analyzer** from the Visualization welcome screen (above).
+
+**Single Pipeline** pick a pipeline and set **Results to display** (prefer **Test** or **External**):
 
 ![Single Pipeline and Results to display](../assets/class/Class47.png)
 
+## Ranking / class plots
+
+| Plot | What it shows |
+|------|----------------|
+| Confusion Matrix | Correct and wrong predictions per class |
+| ROC Curve | Ranking quality at every threshold (binary; OvR for multi-class) |
+| PR Curve | Performance when the positive class is rare (binary) |
+| Class Probability Distribution | How predicted probabilities are spread by true class |
+| Label Distribution | How many rows are in each class |
+| Cumulative Gains / Lift | How much better than random the top-ranked rows are (binary) |
+
+ROC curve for a selected pipeline:
+
+![ROC curve for one pipeline](../assets/class/Class53.png)
+
+## Calibration / utility
+
+| Plot | What it shows |
+|------|----------------|
+| Calibration Curve | Predicted probabilities vs observed frequencies |
+| Decision Curve | Net benefit across thresholds (binary) |
+
+Calibration curves for a selected pipeline:
+
+![Classification calibration curves](../assets/class/Class48.png)
+
 ## Comparing pipelines
+
+**Pipelines Comparison** select combinations, then open a metric chart, heatmap, or overlay:
+
+![Pipelines Comparison controls](../assets/class/Class49.png)
 
 | Plot | What it shows |
 |------|----------------|
 | Single-metric plots | One metric across pipelines |
 | Metrics comparison | Several metrics together |
 | Heatmap | A metric for each combination of model and preprocessing |
-| Performance distribution | How scores are spread across the search |
-| Class distribution | How many rows are in each class |
-| Calibration curve | Whether predicted probabilities match observed frequencies |
-| Decision curve | Net benefit of using the model at different thresholds |
-
-**Pipelines Comparison** offers Combined Plot / Side by Side, All Combinations actions, and Selected Pipelines:
-
-![Pipelines Comparison controls](../assets/class/Class49.png)
+| Combined ROC | ROC curves across selected pipelines |
+| Side by Side | Same plot type next to each other (for example confusion matrices) |
 
 Single-metric comparison (for example Accuracy across pipelines):
 
@@ -52,25 +76,7 @@ Combined ROC curves across pipelines:
 
 ![Side by Side confusion matrix](../assets/class/Class56.png)
 
-## One pipeline
-
-| Plot | What it shows |
-|------|----------------|
-| Confusion matrix | Correct and wrong predictions per class |
-| ROC curve | Ranking quality at every threshold (binary) |
-| Precision–recall curve | Performance when the positive class is rare |
-| Probability distribution | How predicted probabilities are spread |
-| Cumulative gains and lift | How much better than random the top-ranked rows are |
-| Decision curve | Net benefit across thresholds |
-
-ROC curve for a selected pipeline:
-
-![ROC curve for one pipeline](../assets/class/Class53.png)
-
-Calibration curves for a selected pipeline:
-
-![Classification calibration curves](../assets/class/Class48.png)
-
+Use **Plot Explanations** / **Analyze** for in-app help. Confusion / ROC / PR often need **Single Pipeline** views.
 
 ## Common mistakes
 

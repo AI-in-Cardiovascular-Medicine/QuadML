@@ -13,6 +13,8 @@ theme:
   name: material
   # Use local/system fonts (Arial via extra.css), not Google Fonts.
   font: false
+  logo: assets/images/logo.png
+  favicon: assets/images/favicon.png
   palette:
     primary: custom
     accent: custom
@@ -46,7 +48,6 @@ nav:
           - Metrics: classification/10-results.md
           - Visualization: classification/11-visualization.md
           - Interpretability: classification/12-interpretability.md
-      - Tutorial: classification/walkthrough.md
   - Regression:
       - Overview: regression/00-introduction.md
       - Pipeline:
@@ -63,7 +64,6 @@ nav:
           - Metrics: regression/10-results.md
           - Visualization: regression/11-visualization.md
           - Interpretability: regression/12-interpretability.md
-      - Tutorial: regression/walkthrough.md
   - Survival analysis:
       - Overview: survival/00-introduction.md
       - Pipeline:
@@ -81,7 +81,6 @@ nav:
           - Metrics: survival/11-results.md
           - Visualization: survival/12-visualization.md
           - Interpretability: survival/13-interpretability.md
-      - Tutorial: survival/walkthrough.md
   - Clustering:
       - Overview: clustering/00-introduction.md
       - Pipeline:
@@ -96,12 +95,12 @@ nav:
       - Results:
           - Metrics: clustering/09-results.md
           - Visualization: clustering/10-visualization.md
-      - Tutorial: clustering/walkthrough.md
   - About:
       - About QuadML: getting-started/10-about.md
       - Changelog: about/changelog.md
   - For developers:
       - Code structure: developers/code-structure.md
+      - Search and Start Procedure: developers/search-and-start-procedure.md
       - Python requirements: developers/python-requirements.md
       - Build and package: developers/build-and-package.md
       - Contributing: developers/contributing.md

@@ -141,7 +141,7 @@ Resource Usage defaults are often **50% CPU / 50% RAM** so the machine stays usa
 
 Only **one** search may run at a time — Stop or wait before starting another mode.
 
-Task tutorials: [Classification](../classification/walkthrough.md) · [Regression](../regression/walkthrough.md) · [Survival](../survival/walkthrough.md) · [Clustering](../clustering/walkthrough.md)
+Mode overviews: [Classification](../classification/00-introduction.md) · [Regression](../regression/00-introduction.md) · [Survival](../survival/00-introduction.md) · [Clustering](../clustering/00-introduction.md)
 
 ---
 

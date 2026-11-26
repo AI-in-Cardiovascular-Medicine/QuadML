@@ -24,7 +24,7 @@ Data scientists, clinicians, and researchers who work with tabular data — incl
 ## How to start
 
 1. **[Install QuadML](getting-started/installation.md)** — Windows, macOS, Linux, or from source  
-2. Open a mode and follow its **Tutorial** (Classification, Regression, Survival, or Clustering)  
+2. Open a mode **Overview**, then work through **Pipeline** and **Results**  
 3. If something fails — **[Troubleshooting](getting-started/08-troubleshooting.md)**
 
 | Download | Link |
@@ -40,10 +40,10 @@ Data scientists, clinicians, and researchers who work with tabular data — incl
 
 | Mode | Outcome | Start here |
 |------|---------|------------|
-| [Classification](classification/00-introduction.md) | Discrete classes | [Overview](classification/00-introduction.md) · [Tutorial](classification/walkthrough.md) |
-| [Regression](regression/00-introduction.md) | Continuous numeric target | [Overview](regression/00-introduction.md) · [Tutorial](regression/walkthrough.md) |
-| [Survival analysis](survival/00-introduction.md) | Duration + event / censor | [Overview](survival/00-introduction.md) · [Tutorial](survival/walkthrough.md) |
-| [Clustering](clustering/00-introduction.md) | Unlabeled groups | [Overview](clustering/00-introduction.md) · [Tutorial](clustering/walkthrough.md) |
+| [Classification](classification/00-introduction.md) | Discrete classes | [Overview](classification/00-introduction.md) |
+| [Regression](regression/00-introduction.md) | Continuous numeric target | [Overview](regression/00-introduction.md) |
+| [Survival analysis](survival/00-introduction.md) | Duration + event / censor | [Overview](survival/00-introduction.md) |
+| [Clustering](clustering/00-introduction.md) | Unlabeled groups | [Overview](clustering/00-introduction.md) |
 
 ---
 

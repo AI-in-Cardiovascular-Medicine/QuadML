@@ -10,7 +10,7 @@ Contacts and citation: [About QuadML](../getting-started/10-about.md).
 
 ## Documentation changes
 
-User manuals are edited in the application project and published to the public **QuadML** documentation repository. Prefer clear, non-coder wording on user Pipeline / Results / Tutorial pages; put code layout, pins, and packaging under **For developers**.
+User manuals are edited in the application project and published to the public **QuadML** documentation repository. Prefer clear, non-coder wording on user Pipeline / Results pages; put code layout, pins, and packaging under **For developers**.
 
 Related pages: [Code structure](code-structure.md) · [Python requirements](python-requirements.md) · [Build and package](build-and-package.md)
 

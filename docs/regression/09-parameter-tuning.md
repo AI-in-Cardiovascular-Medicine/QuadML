@@ -1,30 +1,36 @@
 # Regression — Parameter tuning
 
-**Where**: Regression → **Parameter Tuning**
-
-Sets search budget and algorithm, then starts the run. No Imbalance Handling or Stratified K-Fold for regression task.
+Sets how QuadML searches the combinations you selected, then starts the run with **Start Procedure**. There is no Imbalance Handling panel in Regression.
 
 ![Parameter Tuning](../assets/reg/25.png)
 
---8<-- "_snippets/search-run.md"
+## Settings
 
-![Search Budget and search algorithm](../assets/reg/26.png)
+| Setting | What it does |
+|---------|--------------|
+| **Search Budget** | **Fast** / **Balanced** / **Thorough** — how rich the search is (does not uncheck methods) |
+| **Search algorithm** | **Grid Search** or **Random Search** (Random Search exposes **Iterations**) |
+| **Cross-validation** | Fold method and number of splits inside Train |
+| **Bootstrap CIs** | Optional 95% intervals on metrics (enable and re-run) |
+| **CPU % / RAM %** | Resource limits (defaults often **50 / 50**) |
 
-![CV, Bootstrap CIs, and Resource Usage](../assets/reg/27.png)
+![Search settings](../assets/reg/26.png)
 
-Selected configuration tree and **Start** / **Stop** / **Reset** / **Export** / **Rebuild Results**:
+## Running the search
 
-![Selected configuration and procedure actions](../assets/reg/28.png)
+**Start Procedure** checks that a run is not already active, the input and Output Directory are set, and the split is valid, then creates a new dated folder and launches the search. **Stop Procedure** cancels the run; partial results may remain, and **Rebuild Results** can rebuild `Final_Results.csv` from finished combo files when possible. Only one search can run at a time across modes.
 
---8<-- "_snippets/start-stop-resources.md"
+![Start, Stop, and Rebuild](../assets/reg/28.png)
 
-**Tip:** Check the configuration tree before Start. Use **Fast** or **Balanced** for first runs.
+## Tips
+
+- Check the configuration tree before Start. Combination count is the product of every checked option
+- Use **Fast** or **Balanced** for first runs
+- Prefer **Stop Procedure** over closing the app
 
 ## Common mistakes
 
-- Starting with every method checked — combination count is a product
+- Starting with every method checked
 - Ignoring Resource Usage on large searches
-- Changing File Selection roles after configuring without re-checking the tree
-- Closing the app instead of **Stop**
 - Setting CPU/RAM to 100% on a machine you still need for other work
 - Starting again without noticing a new dated folder was created
